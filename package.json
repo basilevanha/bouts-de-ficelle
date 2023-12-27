@@ -23,7 +23,7 @@
     "dev": "npm run sprite && npm run development",
     "development": "mix",
     "watch": "npm run dev && mix watch",
-    "sprite": "svg-sprite-generate -d src/img/icons -o static/sprite.svg",
+    "sprite": "svg-sprite-generate -d src/assets/icons -o static/sprite.svg",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
     "prod": "npm run production",
