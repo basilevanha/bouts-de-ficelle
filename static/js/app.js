@@ -21,6 +21,99 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/utils/breakpoints.js":
+/*!*************************************!*\
+  !*** ./src/js/utils/breakpoints.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var breakpoints = {
+  "xxs": 320,
+  "xs": 450,
+  "s": 600,
+  "m": 768,
+  "l": 1300,
+  "xl": 1920,
+  "xxl": 2560
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (breakpoints);
+
+/***/ }),
+
+/***/ "./src/js/utils/mq.js":
+/*!****************************!*\
+  !*** ./src/js/utils/mq.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isLessThan: () => (/* binding */ isLessThan),
+/* harmony export */   isMoreThan: () => (/* binding */ isMoreThan)
+/* harmony export */ });
+/* harmony import */ var _breakpoints_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./breakpoints.js */ "./src/js/utils/breakpoints.js");
+
+
+/**
+ * Check Window.width more than breakpoint
+ *
+ * @param {string} breakpoint - Breakpoint string
+ * @param {boolean} equal - Test breakpoint equality
+ * @returns {boolean} - Return breakpoint status
+ */
+var isMoreThan = function isMoreThan(breakpoint) {
+  var equal = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var bp = _breakpoints_js__WEBPACK_IMPORTED_MODULE_0__["default"][breakpoint];
+
+  // Check if 'breakpoint' is valid
+  if (!bp) {
+    throw new Error("'".concat(breakpoint, "' is not a valid breakpoint"));
+  }
+  var width = window.innerWidth || document.documentElement.clientWidth;
+
+  // Check for equality
+  if (equal && width >= bp) {
+    return true;
+  }
+  if (width > bp) {
+    return true;
+  }
+  return false;
+};
+
+/**
+ * Check Window.width less than breakpoint
+ *
+ * @param {string} breakpoint - Breakpoint string
+ * @param {boolean} equal - Test breakpoint equality
+ * @return {boolean} - Return breakpoint status
+ */
+var isLessThan = function isLessThan(breakpoint) {
+  var equal = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var bp = _breakpoints_js__WEBPACK_IMPORTED_MODULE_0__["default"][breakpoint];
+
+  // Check if 'breakpoint' is valid
+  if (!bp) {
+    throw new Error("'".concat(breakpoint, "' is not a valid breakpoint"));
+  }
+  var width = window.innerWidth || document.documentElement.clientWidth;
+
+  // Check for equality
+  if (equal && width <= bp) {
+    return true;
+  }
+  if (width < bp) {
+    return true;
+  }
+  return false;
+};
+
+/***/ }),
+
 /***/ "./src/js/views/manager.js":
 /*!*********************************!*\
   !*** ./src/js/views/manager.js ***!
@@ -31,7 +124,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _templates_evenements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./templates/evenements */ "./src/js/views/templates/evenements.js");
+/* harmony import */ var _partials_common_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/common/header */ "./src/js/views/partials/common/header.js");
+/* harmony import */ var _templates_evenements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./templates/evenements */ "./src/js/views/templates/evenements.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -41,11 +135,11 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 // Dependencies
 // import Select from 'custom-select';
 
-// import Header   from './partials/common/header';
+
 
 var COMPONENTS = [{
   el: '[template="evenements"]',
-  id: _templates_evenements__WEBPACK_IMPORTED_MODULE_0__["default"]
+  id: _templates_evenements__WEBPACK_IMPORTED_MODULE_1__["default"]
 }];
 
 // Manager Class
@@ -64,9 +158,9 @@ var Manager = /*#__PURE__*/function () {
     this.root = document.body;
 
     // Elements
-    this.header = this.root.querySelector('[data-js-header]');
-    this.footer = this.root.querySelector('[data-js-footer]');
-    this.container = this.root.querySelector('[data-js-container]');
+    this.header = this.root.querySelector('[js-header]');
+    this.footer = this.root.querySelector('[js-footer]');
+    this.container = this.root.querySelector('[js-container]');
     this._onRAF = this.onRAF.bind(this);
 
     // Init
@@ -81,9 +175,9 @@ var Manager = /*#__PURE__*/function () {
     key: "initLayout",
     value: function initLayout() {
       // Header
-      if (this.header && typeof Header !== 'undefined') {
+      if (this.header && typeof _partials_common_header__WEBPACK_IMPORTED_MODULE_0__["default"] !== 'undefined') {
         // eslint-disable-next-line
-        this.Header = new Header({
+        this.Header = new _partials_common_header__WEBPACK_IMPORTED_MODULE_0__["default"]({
           el: this.header
         });
       }
@@ -142,6 +236,90 @@ var Manager = /*#__PURE__*/function () {
   return Manager;
 }();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Manager);
+
+/***/ }),
+
+/***/ "./src/js/views/partials/common/header.js":
+/*!************************************************!*\
+  !*** ./src/js/views/partials/common/header.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_mq__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/mq */ "./src/js/utils/mq.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+var Header = /*#__PURE__*/function () {
+  function Header(_ref) {
+    var _this = this;
+    var el = _ref.el;
+    _classCallCheck(this, Header);
+    this.$el = el;
+    this.$burgerButton = this.$el.querySelector('[js-burger-button]');
+    this.$menu = this.$el.querySelector('[js-menu]');
+    this.$menuLinks = this.$el.querySelectorAll('[js-menu-link]');
+    this.$body = document.querySelector('body');
+    this.$header = document.querySelector('[js-header]');
+    var isHidden = 'header-is-hidden';
+    var isVisible = 'header-is-sticky';
+    var lastScroll = 0;
+    window.addEventListener('scroll', function () {
+      var currentScroll = window.scrollY;
+      if (currentScroll <= ((0,_utils_mq__WEBPACK_IMPORTED_MODULE_0__.isLessThan)('l') ? 70 : 85)) {
+        _this.$header.classList.remove(isHidden);
+        _this.$header.classList.remove(isVisible);
+        return;
+      }
+      if (currentScroll > lastScroll && !_this.$header.classList.contains(isHidden)) {
+        // DOWN
+        _this.$header.classList.remove(isVisible);
+        _this.$header.classList.add(isHidden);
+      } else if (currentScroll < lastScroll && _this.$header.classList.contains(isHidden)) {
+        // UP
+        _this.$header.classList.remove(isHidden);
+        _this.$header.classList.add(isVisible);
+      }
+      lastScroll = currentScroll;
+    });
+    this.bindEvents();
+  }
+  _createClass(Header, [{
+    key: "bindEvents",
+    value: function bindEvents() {
+      var _this2 = this;
+      this._toggleMenu = this.toggleMenu.bind(this);
+      this.$burgerButton.addEventListener('click', this._toggleMenu);
+      if ((0,_utils_mq__WEBPACK_IMPORTED_MODULE_0__.isLessThan)('l')) {
+        this.$menuLinks.forEach(function (link) {
+          link.addEventListener('click', _this2._toggleMenu);
+        });
+      }
+    }
+  }, {
+    key: "toggleMenu",
+    value: function toggleMenu() {
+      if (this.$body.classList.contains('menu-is-open')) {
+        this.$body.classList.remove('menu-is-open');
+        this.$burgerButton.classList.remove('is-open');
+        this.$header.classList.remove('menu-is-open');
+      } else {
+        this.$body.classList.add('menu-is-open');
+        this.$burgerButton.classList.add('is-open');
+        this.$header.classList.add('menu-is-open');
+      }
+    }
+  }]);
+  return Header;
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
 
 /***/ }),
 

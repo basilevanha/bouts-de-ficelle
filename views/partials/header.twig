@@ -1,23 +1,29 @@
 {# Macros #}
 {% import 'atoms/icon.twig' as icon %}
 
-<header class="site-header" role="navigation" data-js-header>
+<header class="site-header" role="navigation" js-header>
+	<div class="site-header__head">
+		<div class="site-header__logo">
+			<a href="{{ site.url}}">
+				<img src="{{ global.logo.url }}" alt="{{ global.logo.alt}}">
+			</a>
+		</div>
 
-	<div>
-		<a href="{{ site.url}}">
-			<img src="{{ global.logo.url }}" alt="{{ global.logo.alt}}">
-		</a>
+		<button class="site-header__burger" js-burger-button>
+			{{ icon.sprite('burger', 50, 50, 'icone du menu', site.theme.link) }}
+		</button>
 	</div>
 
-		{% set items = menu.get_items %}
-
+	<div class="site-header__body" js-menu>
 		{% if menu %}
-			<ul class="navigation__items">
+			<ul class="site-header__body__navigation">
+				{% set items = menu.get_items %}
 				{% for item in items %}
-					<li class="{{ item.classes | join(' ') }}">
-						<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+					<li class="site-header__body__navigation__item">
+						<a target="{{ item.target }}" href="{{ item.link }}" class="{{ post.id == item.object_id ? ' active' : '' }}" js-menu-link>{{ item.title }}</a>
 					</li>
 				{% endfor %}
 			</ul>
 		{% endif %}
+	</div>
 </header>

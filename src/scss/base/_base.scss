@@ -4,6 +4,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  background-color: color(light);
 }
 
 
@@ -25,6 +26,12 @@ html {
 body {
   width: 100%;
   height: auto;
+
+  &.menu-is-open {
+    @include mq($until: desktop) {
+      overflow: hidden !important;
+    }
+  }
 }
 
 .no-scroll {
@@ -37,13 +44,30 @@ body {
 .site-container {
   // background-color: blue;
   overflow: hidden;
-  padding: $header-desktop-height null null;
+  padding: $header-desktop-height 0 0;
 
   @include mq($until: 'm') {
-    padding: $header-mobile-height null null;
+    padding: $header-mobile-height 0 0;
   }
 }
 
+
+// Set up container
+// -----------------------------------------------------------------------------
+.container {
+  padding: null $container-padding;
+  margin: null auto;
+  width: 100%;
+  max-width: $container-width;
+  
+  &--small {
+    max-width: $container-width-small;
+  }
+  
+  @include mq($until: 'm') {
+    padding: null 20px;
+  }
+}
 
 // Set up global SVG container
 // -----------------------------------------------------------------------------
@@ -52,23 +76,5 @@ body {
 
   svg {
     display: block;
-  }
-}
-
-// Set up container
-// -----------------------------------------------------------------------------
-.container {
-  // background-color: red;
-  padding: null $container-padding;
-  margin: null auto;
-  width: 100%;
-  max-width: $container-width;
-
-  &--small {
-    max-width: $container-width-small;
-  }
-
-  @include mq($until: 'm') {
-    padding: null 20px;
   }
 }

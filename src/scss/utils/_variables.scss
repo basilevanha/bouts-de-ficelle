@@ -11,11 +11,16 @@ $font-weights: (
 // Containers variables
 // -----------------------------------------------------------------------------
 $container-padding: 30px;
-$container-width: 1388px;
+$container-width: 1500px;
 $container-width-small: 885px;
 
 $header-mobile-height: 70px;
-$header-desktop-height: 100px;
+$header-desktop-height: 85px;
+
+// Spacing variables
+// -----------------------------------------------------------------------------
+$spacing-small: 20px;
+
 
 // Color Palette
 // -----------------------------------------------------------------------------
@@ -31,6 +36,10 @@ $color-tertiary: #BE3E82;
 
 
 $default-colors: (
+  dark:               $color-dark,
+  light:              $color-light,
+  tertiary:              $color-tertiary,
+  secondary:              $color-secondary,
   text:                  rgba($color-dark, .7),
   button-bg:                   $color-primary,
   button-txt:                    $color-light,

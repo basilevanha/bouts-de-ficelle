@@ -3,7 +3,7 @@
 
 
 
-// import Header   from './partials/common/header';
+import Header   from './partials/common/header';
 import Evenements   from './templates/evenements';
 
 const COMPONENTS = [
@@ -30,9 +30,9 @@ class Manager {
     this.root = document.body;
 
     // Elements
-    this.header = this.root.querySelector('[data-js-header]');
-    this.footer = this.root.querySelector('[data-js-footer]');
-    this.container = this.root.querySelector('[data-js-container]');
+    this.header = this.root.querySelector('[js-header]');
+    this.footer = this.root.querySelector('[js-footer]');
+    this.container = this.root.querySelector('[js-container]');
 
     this._onRAF = this.onRAF.bind(this);
 
@@ -45,7 +45,6 @@ class Manager {
    * Initialize layout classes like `Header` and `Footer`.
    */
   initLayout() {
-
     // Header
     if (this.header && typeof Header !== 'undefined') {
       // eslint-disable-next-line
