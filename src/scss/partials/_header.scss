@@ -1,0 +1,12 @@
+.site-header {
+    // position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-mobile-height;
+    // overflow: hidden;
+
+    @include mq($from: 'm') {
+        height: $header-desktop-height;
+    }
+}

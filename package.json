@@ -1,0 +1,32 @@
+{
+  "name": "bdf-sur-mesure",
+  "version": "1.0.0",
+  "main": "src/js/app.js",
+  "repository": "/wp-content/themes/bdf-sur-mesure",
+  "author": "Basile Vanhaverbeke",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-svg-sprite": "^2.0.0",
+    "svg-sprite-generator": "^0.0.7",
+    "sass-mq": "4.0.2"
+  },
+  "devDependencies": {
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^12.1.0"
+  },
+  "scripts": {
+    "dev": "npm run sprite && npm run development",
+    "development": "mix",
+    "watch": "npm run dev && mix watch",
+    "sprite": "svg-sprite-generate -d src/img/icons -o static/sprite.svg",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  }
+}

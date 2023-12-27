@@ -1,0 +1,23 @@
+// Put on root because the relative path need to be there when compiled by the laravel mix.
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../../assets/fonts/OpenSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../../assets/fonts/OpenSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../../assets/fonts/OpenSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+}
+
+// @include font-face('OpenSans', url('./OpenSans-Regular.ttf'), 400, normal, ttf);
+// @include font-face('OpenSans', url('./OpenSans-Bold.ttf'), 700, normal, ttf);
+// @include font-face('OpenSans', url('./OpenSans-ExtraBold.ttf'), 900, normal, ttf);

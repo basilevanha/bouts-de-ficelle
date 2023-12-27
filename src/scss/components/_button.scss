@@ -1,0 +1,35 @@
+// scss-lint:disable all
+.button {
+  padding: 15px 50px 17px;
+  @include font('bold');
+  font-size: rem(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  background-color: color(button-bg);
+  color: color(button-txt);
+  border-radius: 12px;
+  transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
+  outline: none;
+
+  @include mq($until: 'm') {
+    padding: 14px null 16px;
+    border-radius: 7px;
+    font-size: rem(19px);
+  }
+
+  &.button--ghost {
+    background-color: color(button-ghost-bg);
+    color: color(button-ghost-txt);
+
+    &:hover {
+      background-color: color(button-ghost-hover-bg);
+      color: color(button-ghost-hover-txt);
+    }
+  }
+
+  &:hover {
+    background-color: color(button-hover-bg);
+  }
+}

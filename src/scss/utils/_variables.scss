@@ -1,0 +1,38 @@
+// Font settings
+// -----------------------------------------------------------------------------
+$base-font-size: 16px;
+$base-line-height: 2;
+$font-weights: (
+  regular : 400,
+  bold : 700,
+  extra-bold : 800,
+);
+
+// Containers variables
+// -----------------------------------------------------------------------------
+$container-padding: 30px;
+$container-width: 1388px;
+$container-width-small: 885px;
+
+$header-mobile-height: 70px;
+$header-desktop-height: 100px;
+
+// Color Palette
+// -----------------------------------------------------------------------------
+$color-black: #2F3B41;
+$color-white: #ffff;
+
+$color-dark: #293665;
+$color-light: #F5F5F5;
+
+$color-primary: #EF916D;
+$color-secondary: #69A99B;
+$color-tertiary: #BE3E82;
+
+
+$default-colors: (
+  text:                  rgba($color-dark, .7),
+  button-bg:                   $color-primary,
+  button-txt:                    $color-light,
+  button-hover-bg:   darken($color-primary, 5%),
+)

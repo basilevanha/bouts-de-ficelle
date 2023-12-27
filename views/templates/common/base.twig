@@ -1,0 +1,32 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 9]><!-->
+	<html class="no-js no-svg" {{ site.language_attributes }}> <!--<![endif]-->
+		{% include 'partials/common/head.twig' %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		{{ function('wp_body_open') }}
+
+		<div class="site-wrapper">
+			{% block header %}
+				{% include 'partials/header.twig' %}
+			{% endblock %}
+
+			<main class="site-container" role="main" template="{{ template | default('page') }}" data-js-container>
+				{% block main %}{% endblock %}
+			</main>
+
+			{% block footer %}
+				{% include 'partials/footer.twig' %}
+			{% endblock %}
+		</div>
+
+    	{% include 'partials/common/scripts.twig' %}
+
+		{% block scripts %}{% endblock %}
+		
+		
+		{{ function('wp_footer') }}
+	</body>
+</html>

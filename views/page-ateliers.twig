@@ -1,0 +1,36 @@
+{% extends "templates/common/base.twig" %}
+
+{% set template = 'ateliers' %}
+
+{# Variables disponibles :
+		{{ dump(hero) }}
+		{{ dump(liste) }}
+ #}
+
+{% block main %}
+
+	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+		BIENVENUE SUR LA PAGE ATELIERS
+		
+		<h1>HERO</h1>
+		<p>{{ hero.titre }}</p>
+		<p>{{ hero.texte }}</p>
+		<img src="{{ hero.img.url }}" alt="{{ hero.img.alt }}">
+		<p>{{ hero.btn.label }}</p>
+		<p>{{ hero.btn.url }}</p>
+
+		<h1>NOS ATELIERS</h1>
+		<p>{{ liste.titre }}</p>
+		
+		<ul>
+			{% for atelier in ateliers %}
+				<li>
+					{{atelier.id}}
+				</li>
+			{% endfor %}
+		</ul>
+
+	</div>
+	<!-- /content-wrapper -->
+{% endblock %}

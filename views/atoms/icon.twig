@@ -1,0 +1,9 @@
+
+{% macro sprite(id, width, height, label, path = null)  %}
+	{% set path = path is not null ? path : global.themeLink %}
+	<span class="svg svg-{{ id }}">
+		<svg width="{{ width }}" height="{{ height }}" {% if label %} aria-label="{{ label }}" {% endif %}>
+			<use xlink:href="{{ path ? path : defaultPath }}/static/sprite.svg#{{ id }}"></use>
+		</svg>
+	</span>
+{% endmacro %}
