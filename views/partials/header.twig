@@ -27,6 +27,7 @@
 							href="{{ item.link }}"
 							js-menu-link
 							class="{{ post.id == item.object_id ? ' active' : '' }}"
+							{% if post.id == item.object_id %}disabled{% endif %}
 						>{{ item.title }}</a>
 					</li>
 				{% endfor %}
@@ -34,9 +35,12 @@
 		{% endif %}
 
 		<div class="site-header__body__footer">
-			<p class="site-header__body__footer__txt">
-				{{ global.contact.texte}}
-			</p>
+
+			{% if global.contact.texte %}
+				<p class="site-header__body__footer__txt">
+					{{ global.contact.texte}}
+				</p>
+			{% endif %}
 			
 			{% include 'components/button.twig' with {
 				'label': global.contact.label,

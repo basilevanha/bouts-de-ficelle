@@ -128,7 +128,9 @@
 
                     &.active {
                         color: color(nav-active);
-                        
+                        pointer-events: none;
+                        cursor: not-allowed;
+
                         @include mq($from: desktop) {
                             position: relative;
 
