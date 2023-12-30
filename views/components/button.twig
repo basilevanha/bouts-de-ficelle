@@ -1,0 +1,22 @@
+{# Available datas :
+    href : string
+    label : string
+    style : 'neg' | 'default'
+    isHeader : bool
+    class: string
+ #}
+{% if href %}
+    <a
+        href={{ href }}
+        {% if isHeader %}js-menu-link{% endif %}
+{% else %}
+    <button
+{% endif %}
+        class="button {% if class %}{{ class }}{% endif %}"
+    >
+        {{ label ? label : '' }}
+{% if href %}
+    </a>
+{% else %}
+    </buttton>
+{% endif %}

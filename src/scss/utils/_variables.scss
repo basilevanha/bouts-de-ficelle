@@ -17,9 +17,14 @@ $container-width-small: 885px;
 $header-mobile-height: 70px;
 $header-desktop-height: 85px;
 
+$burger-width: 50px;
+
 // Spacing variables
 // -----------------------------------------------------------------------------
+$spacing-xsmall: 10px;
 $spacing-small: 20px;
+$spacing-md: 50px;
+$spacing-lg: 70px;
 
 
 // Color Palette
@@ -30,18 +35,37 @@ $color-white: #ffff;
 $color-dark: #293665;
 $color-light: #F5F5F5;
 
+$color-dark-lightened: lighten($color-dark, 65%);
+$color-dark-opacity: rgba($color-dark, .7);
+
 $color-primary: #EF916D;
+$color-primary-lightened: lighten($color-primary, 26%);
+
 $color-secondary: #69A99B;
+$color-secondary-lightened: lighten($color-secondary, 65%);
+
 $color-tertiary: #BE3E82;
+$color-tertiary-lightened: lighten($color-tertiary, 65%);
 
 
 $default-colors: (
   dark:               $color-dark,
   light:              $color-light,
-  tertiary:              $color-tertiary,
-  secondary:              $color-secondary,
-  text:                  rgba($color-dark, .7),
-  button-bg:                   $color-primary,
-  button-txt:                    $color-light,
-  button-hover-bg:   darken($color-primary, 5%),
+
+  primary:            $color-primary,
+  secondary:          $color-secondary,
+  tertiary:           $color-tertiary,
+
+  bg-primary:         $color-primary-lightened,
+
+  nav-active:         $color-dark-opacity,
+
+  text:               $color-dark-opacity,
+  input:              $color-dark-lightened,
+
+  button-bg:          $color-primary,
+  button-txt:         $color-light,
+  button-hover-bg:    darken($color-primary, 5%),
+
+
 )

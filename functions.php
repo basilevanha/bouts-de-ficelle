@@ -23,6 +23,8 @@ function add_to_context($context) {
         'themeLink' => $theme_url,
         'logo' =>  get_field('global-logo', 9), // Change 9 to the correct ID if needed
         'highlight' =>  get_field('global-highlight', 9),
+        'socials' => get_field('global-socials', 9),
+        'contact' => get_field('global-contact', 9)
     );
 
     return $context;

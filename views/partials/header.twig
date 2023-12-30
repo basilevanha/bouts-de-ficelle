@@ -10,7 +10,9 @@
 		</div>
 
 		<button class="site-header__burger" js-burger-button>
-			{{ icon.sprite('burger', 50, 50, 'icone du menu', site.theme.link) }}
+			<span class="site-header__burger__line"></span>
+			<span class="site-header__burger__line"></span>
+			<span class="site-header__burger__line"></span>
 		</button>
 	</div>
 
@@ -20,10 +22,48 @@
 				{% set items = menu.get_items %}
 				{% for item in items %}
 					<li class="site-header__body__navigation__item">
-						<a target="{{ item.target }}" href="{{ item.link }}" class="{{ post.id == item.object_id ? ' active' : '' }}" js-menu-link>{{ item.title }}</a>
+						<a
+							target="{{ item.target }}"
+							href="{{ item.link }}"
+							js-menu-link
+							class="{{ post.id == item.object_id ? ' active' : '' }}"
+						>{{ item.title }}</a>
 					</li>
 				{% endfor %}
 			</ul>
 		{% endif %}
+
+		<div class="site-header__body__footer">
+			<p class="site-header__body__footer__txt">
+				{{ global.contact.texte}}
+			</p>
+			
+			{% include 'components/button.twig' with {
+				'label': global.contact.label,
+				'href': global.contact.url,
+				'isHeader': true,
+				'class': 'site-header__body__footer__contact'
+			} %}
+
+			<div class="socials">
+				{% for social in global.socials %}
+					<a
+						href="{{ social.url}}"
+						label="{{ social.name }}"
+						target="_blank"
+					>
+						{{ icon.sprite(social.name, 30, 30, 'Icone de youtube', site.theme.link) }}
+					</a>
+				{% endfor %}
+			</div>
+
+			{{ icon.sprite('logo', 448, 40, 'logo de l\'asbl bouts de ficelle', site.theme.link ) }}
+		</div>
 	</div>
+
+	<form class="site-header__search">
+		<label for="site-search" class="u-visually-hidden">Search the site:</label>
+		<input type="search" id="site-search" class"site-header__search__input" name="q" />
+		<button type="submit">{{ icon.sprite('search', 20, 20, 'icone de recherche', site.theme.link) }}</button>
+	</form>
 </header>
