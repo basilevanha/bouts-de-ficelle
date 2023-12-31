@@ -31,3 +31,78 @@ h1 {
     font-size: rem(45px);
   }
 }
+
+.a {
+  color: color(link);
+  text-decoration: underline;
+
+  &:hover {
+    cursor: pointer;
+    color: color(link-hover);
+  }
+}
+
+
+// Typeset
+// -----------------------------------------------------------------------------
+.typeset {
+
+  max-width: 900px;
+  margin: 0 auto;
+  h1 {
+    @include font(extra-bold);
+    font-size: rem(40px);
+  
+    @include mq($until: 'm') {
+      font-size: rem(45px);
+    }
+  }
+
+  h2 {
+    @include font(bold);
+    font-size: rem(38px);
+  
+    @include mq($until: 'm') {
+      font-size: rem(40px);
+    }
+  }
+
+  h3 {
+    @include font(bold);
+    font-size: rem(30px);
+    text-transform: uppercase;
+  }
+
+  h4 {
+    @include font(bold);
+    font-size: rem(28px);
+    color: color(text);
+  }
+
+  h5 {
+    @include font(bold);
+    font-size: rem(25px);
+  }
+
+  h6 {
+    @include font(bold);
+    font-size: rem(22px);
+  }
+
+
+  p {
+    @include font('regular');
+    font-size: rem(20px);
+    color: color(dark);
+  }
+
+  strong {
+    @include font('bold')
+  }
+
+  a {
+    @include font('regular');
+    font-size: rem(20px);
+    color: color(link);
+  }
+}

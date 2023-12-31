@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{# Variables disponibles :
+	{{ dump(hero) }}
+	{{ dump(actus) }}
+	{{ dump(cours) }}
+	{{ dump(ateliers) }}
+ #}
+
+{% block main %}
+
+	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+		BIENVENUE SUR LA PAGE D'ACCUEIL
+
+		{{ dump(menu.footer)}}
+
+		<h1>HERO</h1>
+		<p>{{ hero.titre }}</p>
+		<p>{{ hero.texte }}</p>
+		<p>{{ hero.btns.btn1.label }}</p>
+		<p>{{ hero.btns.btn1.url }}</p>
+		<p>{{ hero.btns.btn2.label }}</p>
+		<p>{{ hero.btns.btn2.url }}</p>
+		<img src="{{ hero.img.url }}" alt="{{ hero.img.alt }}">
+
+		<h1>ACTUS</h1>
+		<p>{{ actus.titre }}</p>
+
+		<h1>COURS & STAGES</h1>
+		<p>{{ cours.titre }}</p>
+		<p>{{ cours.texte }}</p>
+		<p>{{ cours.btns.btn1.label }}</p>
+		<p>{{ cours.btns.btn1.url }}</p>
+		<p>{{ cours.btns.btn2.label }}</p>
+		<p>{{ cours.btns.btn2.url }}</p>
+		<img src="{{ cours.img.url }}" alt="{{ cours.img.alt }}">
+
+		<h1>ATELIERS</h1>
+		<p>{{ ateliers.titre }}</p>
+		<p>{{ ateliers.texte }}</p>
+		<p>{{ ateliers.btn.label }}</p>
+		<p>{{ ateliers.btn.url }}</p>
+
+	</div>
+	<!-- /content-wrapper -->
+{% endblock %}

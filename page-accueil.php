@@ -10,4 +10,4 @@ $context['actus']       = get_field('accueil-actus', $context['post']->ID);
 $context['cours']       = get_field('accueil-cours', $context['post']->ID);
 $context['ateliers']    = get_field('accueil-ateliers', $context['post']->ID);
 
- Timber::render( array( 'page.twig' ), $context );
+ Timber::render( array( 'page-accueil.twig' ), $context );
