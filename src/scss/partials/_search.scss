@@ -1,0 +1,37 @@
+.search-page {
+    h1 {
+        padding-bottom: $spacing-md;
+
+        .query {
+            margin-left: $spacing-xsmall;
+            border: 2px solid color(text);
+            border-radius: $radius-small;
+            padding-left: $spacing-xsmall;
+            padding-right: $spacing-xsmall;
+        }
+    }
+    article {
+        margin-bottom: $spacing-md;
+        width: 100%;
+        padding: $spacing-small;
+        background-color: color(search-bg);
+        border-radius: $radius-small;
+        overflow: hidden;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+
+        h2 {
+            @include font('bold');
+            font-size: rem(30px);
+
+            a {
+                color: color(primary);
+                text-decoration: underline;
+            }
+        }
+
+        p {
+
+        }
+    }
+}

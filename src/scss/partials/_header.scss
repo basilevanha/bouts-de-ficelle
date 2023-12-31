@@ -223,16 +223,27 @@
         }
 
         button {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                right: 0;
-                height: 100%;
-                width: $burger-width;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            height: 100%;
+            width: $burger-width;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+            overflow: hidden;
+            background-color: color(button-bg);
+            transition: background-color .3s ease-in-out;
+            color: color(light);
 
-                @include mq($from: desktop) {
-                    right: $container-padding;
-                }
+            @include mq($from: desktop) {
+                right: $container-padding;
+                height: 44px;
+            }
+
+            &:hover {
+                background-color: color(button-hover-bg);
+            }
         }
     }
 

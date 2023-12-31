@@ -25,7 +25,7 @@ html {
 // -----------------------------------------------------------------------------
 body {
   width: 100%;
-  height: auto;
+  height: 100%;
 
   &.menu-is-open {
     @include mq($until: desktop) {
@@ -41,10 +41,17 @@ body {
 
 // Set up site container to remove any overflow content
 // -----------------------------------------------------------------------------
+.site-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .site-container {
   // background-color: blue;
   overflow: hidden;
   padding: $header-desktop-height 0 0;
+  flex: 1 0 auto;
 
   @include mq($until: 'm') {
     padding: $header-mobile-height 0 0;

@@ -69,6 +69,8 @@ $default-colors: (
   text:               $color-dark-opacity,
   input:              $color-dark-lightened,
 
+  search-bg:          $color-secondary-lightened,
+
   link:               $color-primary,
   link-hover:         darken($color-primary, 5%),
   

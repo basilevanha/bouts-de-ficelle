@@ -5,12 +5,14 @@
     isHeader : bool
     class: string
  #}
+
 {% if href %}
     <a
         href={{ href }}
         {% if isHeader %}js-menu-link{% endif %}
 {% else %}
     <button
+        type="button"
 {% endif %}
         class="button {% if class %}{{ class }}{% endif %}"
     >
