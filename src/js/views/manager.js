@@ -4,6 +4,7 @@
 
 
 import Header   from './partials/common/header';
+import Footer   from './partials/common/footer';
 import Evenements   from './templates/evenements';
 
 const COMPONENTS = [

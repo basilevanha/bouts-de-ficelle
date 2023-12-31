@@ -36,18 +36,20 @@
 
 		<div class="site-header__body__footer">
 
-			{% if global.contact.texte %}
+			{% if global.footer.contact.texte %}
 				<p class="site-header__body__footer__txt">
-					{{ global.contact.texte}}
+					{{ global.footer.contact.texte}}
 				</p>
 			{% endif %}
 			
+			{% if global.footer.contact.url %}
 			{% include 'components/button.twig' with {
-				'label': global.contact.label,
-				'href': global.contact.url,
+					'label': global.footer.contact.label,
+					'href': global.footer.contact.url,
 				'isHeader': true,
 				'class': 'site-header__body__footer__contact'
 			} %}
+			{% endif %}
 
 			<div class="socials">
 				{% for social in global.socials %}

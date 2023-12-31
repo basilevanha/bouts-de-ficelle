@@ -19,12 +19,15 @@ Timber::$dirname = [ 'templates', 'views' ];
 function add_to_context($context) {
     $theme_url = get_template_directory_uri();
     
+    // Get global variables from homepage (9) ACF
+    $homePageID = 9;
     $context['global'] = array(
         'themeLink' => $theme_url,
-        'logo' =>  get_field('global-logo', 9), // Change 9 to the correct ID if needed
-        'highlight' =>  get_field('global-highlight', 9),
-        'socials' => get_field('global-socials', 9),
-        'contact' => get_field('global-contact', 9)
+        'logo' =>  get_field('global-logo', $homePageID),
+        'highlight' =>  get_field('global-highlight', $homePageID),
+        'socials' => get_field('global-socials', $homePageID),
+        'footer' => get_field('global-footer', $homePageID),
+        'copyrights' => get_field('global-copyrights', $homePageID)
     );
 
     return $context;

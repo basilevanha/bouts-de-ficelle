@@ -2,15 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: $spacing-xsmall $spacing-small;
   @include font('bold');
   font-size: rem(20px);
+  line-height: 1.4;
   background-color: color(button-bg);
   color: color(button-txt);
   border-radius: 12px;
   transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   outline: none;
+  width: 100%;
+  
+  @include mq($from: desktop) {
+    max-width: max-content;
+  }
 
   &.button--ghost {
     background-color: color(button-ghost-bg);

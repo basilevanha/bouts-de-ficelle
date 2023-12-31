@@ -26,6 +26,11 @@ $spacing-small: 20px;
 $spacing-md: 50px;
 $spacing-lg: 70px;
 
+// Radius variables
+// -----------------------------------------------------------------------------
+$radius-small: 10px;
+$radius-big: 30px;
+
 
 // Color Palette
 // -----------------------------------------------------------------------------
@@ -57,15 +62,18 @@ $default-colors: (
   tertiary:           $color-tertiary,
 
   bg-primary:         $color-primary-lightened,
+  footer-bg:          $color-dark,
 
   nav-active:         $color-dark-opacity,
 
   text:               $color-dark-opacity,
   input:              $color-dark-lightened,
 
+  link:               $color-primary,
+  link-hover:         darken($color-primary, 5%),
+  
   button-bg:          $color-primary,
   button-txt:         $color-light,
   button-hover-bg:    darken($color-primary, 5%),
-
 
 )
