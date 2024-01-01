@@ -92,12 +92,13 @@ img {
 }
 
 
-* {
-  &:focus,
-  &:focus-visible {
-    outline: 3px solid color(focus);
-  }
+*:focus,
+*:focus-visible {
+  outline: 3px solid color(focus);
+}
 
+a,
+button {
   &:hover {
     outline: none;
   }
