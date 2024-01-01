@@ -4,41 +4,41 @@ class Header {
   constructor({ el }) {
     this.$el = el;
 
-    this.$burgerButton      = this.$el.querySelector('[js-burger-button]');
-    this.$menu             = this.$el.querySelector('[js-menu]');
-    this.$menuLinks             = this.$el.querySelectorAll('[js-menu-link]');
+    this.$burgerButton    = this.$el.querySelector('[js-burger-button]');
+    this.$menu            = this.$el.querySelector('[js-menu]');
+    this.$menuLinks       = this.$el.querySelectorAll('[js-menu-link]');
 
-    this.$body      = document.querySelector('body');
-    this.$header    = document.querySelector('[js-header]');
+    this.$body            = document.querySelector('body');
+    this.$header          = document.querySelector('[js-header]');
 
+    this.isHidden         = 'header-is-hidden';
+    this.isVisible        = 'header-is-sticky';
 
-    const isHidden = 'header-is-hidden';
-    const isVisible = 'header-is-sticky';
+    this._showHeader      = this.showHeader.bind(this);
+    this._hideHeader      = this.hideHeader.bind(this);
 
     let lastScroll = 0;
 
 
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
-      
-        if (currentScroll <= (isLessThan('l') ? 70 : 85)) {
-          this.$header.classList.remove(isHidden);
-          this.$header.classList.remove(isVisible);
-          return;
-        }
 
-        if (currentScroll > lastScroll && !this.$header.classList.contains(isHidden)) {
-          // DOWN
-          this.$header.classList.remove(isVisible);
-          this.$header.classList.add(isHidden);
-        } else if (currentScroll < lastScroll && this.$header.classList.contains(isHidden)) {
-          // UP
-          this.$header.classList.remove(isHidden);
-          this.$header.classList.add(isVisible);
-        }
+      if (currentScroll <= (isLessThan('l') ? 70 : 85)) {
+        const isTop = true;
+        this._showHeader(isTop);
+        return;
+      }
 
-        lastScroll = currentScroll;
-      });
+      if (currentScroll > lastScroll && !this.$header.classList.contains(this.isHidden)) {
+        // DOWN
+        this._hideHeader();
+      } else if (currentScroll < lastScroll && this.$header.classList.contains(this.isHidden)) {
+        // UP
+        this._showHeader();
+      }
+
+      lastScroll = currentScroll;
+    });
 
     this.bindEvents();
   }
@@ -47,11 +47,22 @@ class Header {
     this._toggleMenu = this.toggleMenu.bind(this);
     this.$burgerButton.addEventListener('click', this._toggleMenu);
 
-    if(isLessThan('l')) {
-      this.$menuLinks.forEach(link => {
+    this.$menuLinks.forEach(link => {
+      link.addEventListener('focus', this._showHeader)
+      if(isLessThan('l')) {
         link.addEventListener('click', this._toggleMenu);
-      });
-    }
+      }
+    });
+  }
+
+  showHeader(isTop) {
+    this.$header.classList.remove(this.isHidden);
+    isTop ? this.$header.classList.remove(this.isVisible) : this.$header.classList.add(this.isVisible);
+  }
+
+  hideHeader() {
+    this.$header.classList.remove(this.isVisible);
+    this.$header.classList.add(this.isHidden);
   }
 
   toggleMenu() {

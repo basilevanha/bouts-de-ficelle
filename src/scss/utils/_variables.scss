@@ -76,6 +76,9 @@ $default-colors: (
   
   button-bg:          $color-primary,
   button-txt:         $color-light,
-  button-hover-bg:    darken($color-primary, 5%),
+  button-hover-bg:    lighten($color-primary, 5%),
+  button-pressed:     darken($color-primary, 5%),
+
+  focus:       $color-tertiary
 
 )

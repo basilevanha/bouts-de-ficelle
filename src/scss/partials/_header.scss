@@ -27,7 +27,7 @@
 
     &__logo {
         display: flex;
-        height: 25px;
+        height: 30px;
         transition: transform .3s ease-in-out, opacity .3s ease-in-out;
 
         img {
@@ -118,34 +118,40 @@
                 }
 
                 @include mq($from: desktop) {
-                    padding: 0 $spacing-small;
                     flex-shrink: 0;
                 }
 
 
                 a {
+                    padding: 0 $spacing-small;
                     color: color(dark);
                     display: block;
 
-                    &.active {
-                        color: color(nav-active);
-                        pointer-events: none;
-                        cursor: not-allowed;
+                    @include mq($from: desktop) {
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 40px;
 
-                        @include mq($from: desktop) {
-                            position: relative;
+                        &:hover {
+                            background-color: color(input);
+                        }
 
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                bottom: 0;
-                                left: 50%;
-                                transform: translate(-50%);
-                                width: 50px;
-                                height: 3px;
-                                border-radius: 3px;
-                                background-color: color(dark);
-                            }
+                        &.active {
+                            color: color(nav-active);
+                            pointer-events: none;
+                            cursor: not-allowed;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 50%;
+                                    transform: translate(-50%);
+                                    width: 50px;
+                                    height: 3px;
+                                    border-radius: 3px;
+                                    background-color: color(dark);
+                                }
                         }
                     }
                 }
@@ -243,6 +249,10 @@
 
             &:hover {
                 background-color: color(button-hover-bg);
+            }
+
+            &:active {
+                background-color: color(button-pressed);
             }
         }
     }

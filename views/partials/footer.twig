@@ -10,7 +10,7 @@
                 {{ menus.footer.title }}
                 {{ icon.sprite('chevron-down', 25, 15, 'Flèche vers le bas', site.theme.link ) }}
             </button>
-            <div class="bloc_content" js-bloc-content>
+            <div class="bloc__content" js-bloc-content>
                 <ul class="site-footer__navigation">
                     {% set items = menus.footer.get_items %}
                     {% for item in items %}
@@ -44,7 +44,7 @@
                 {{ global.footer.dons.titre }}
                 {{ icon.sprite('chevron-down', 25, 15, 'Flèche vers le bas', site.theme.link ) }}
             </button>
-            <div class="bloc_content" js-bloc-content>
+            <div class="bloc__content" js-bloc-content>
                 <p>{{ global.footer.dons.texte }}</p>
 
                 {% include 'components/button.twig' with {
@@ -60,7 +60,7 @@
                 {{ global.footer.contact.titre }}
                 {{ icon.sprite('chevron-down', 25, 15, 'Flèche vers le bas', site.theme.link ) }}
             </button>
-            <div class="bloc_content" js-bloc-content>
+            <div class="bloc__content" js-bloc-content>
                 <p>{{ global.footer.contact.texte }}</p>
 
                 {% include 'components/button.twig' with {
@@ -75,7 +75,7 @@
             <button class="bloc__title">
                 {{ global.footer.socials.titre }}
             </button>
-            <div class="bloc_content">
+            <div class="bloc__content">
                 <div class="site-footer__follow">
 
                     <form action="" class="site-footer__follow__newsletter">

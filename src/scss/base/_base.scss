@@ -90,3 +90,19 @@ body {
 img {
   max-width: 100%;
 }
+
+
+* {
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid color(focus);
+  }
+
+  &:hover {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+  }
+}

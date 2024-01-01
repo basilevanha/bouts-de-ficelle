@@ -27,7 +27,18 @@
     }
   }
 
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid color(focus);
+  }
+
   &:hover {
     background-color: color(button-hover-bg);
+    outline: none;
+  }
+
+  &:active {
+    background-color: color(button-pressed);
+    outline: none;
   }
 }
