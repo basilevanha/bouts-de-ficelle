@@ -25,8 +25,8 @@
 						<a
 							target="{{ item.target }}"
 							href="{{ item.link }}"
+							class="{{ post.id == item.object_id ? ' active ' : '' }}"
 							js-menu-link
-							class="{{ post.id == item.object_id ? ' active' : '' }}"
 							{% if post.id == item.object_id %}disabled{% endif %}
 						>{{ item.title }}</a>
 					</li>

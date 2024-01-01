@@ -26,6 +26,7 @@
     }
 
     &__logo {
+        margin-right: $spacing-small;
         display: flex;
         height: 30px;
         transition: transform .3s ease-in-out, opacity .3s ease-in-out;
@@ -42,6 +43,7 @@
         position: relative;
         width: $burger-width;
         height: $burger-width;
+        flex-shrink: 0;
 
         @include mq($from: desktop) {
             display: none;
@@ -133,15 +135,10 @@
                         border-radius: 40px;
 
                         &:hover {
-                            background-color: color(input);
+                            background-color: color(nav-hover);
                         }
 
-                        &.active {
-                            color: color(nav-active);
-                            pointer-events: none;
-                            cursor: not-allowed;
-
-                                &::after {
+                        &.active::after {
                                     content: '';
                                     position: absolute;
                                     bottom: 0;
@@ -153,6 +150,11 @@
                                     background-color: color(dark);
                                 }
                         }
+
+                    &.active {
+                        color: color(nav-active);
+                        pointer-events: none;
+                        cursor: not-allowed;
                     }
                 }
             }

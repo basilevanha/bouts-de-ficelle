@@ -21,7 +21,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-color: color(light);
+                background-color: color(bg-dark);
             }
         }
     }
@@ -168,12 +168,19 @@
         }
 
         &__social {
+            padding: $spacing-xsmall;
+            border-radius: 40px;
+            overflow: hidden;
             color: color(light);
             display: flex;
             align-items: center;
 
             @include mq($from: desktop) {
                 color: color(dark);
+            }
+
+            &:hover {
+                background-color: color(nav-hover);
             }
         }
     }
