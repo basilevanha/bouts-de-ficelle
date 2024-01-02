@@ -9,36 +9,49 @@
   background-color: color(button-bg);
   color: color(button-txt);
   border-radius: 12px;
-  transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
+  transition:
+    color .3s ease-in-out,
+    background .3s ease-in-out,
+    border .3s ease-in-out;
   outline: none;
   width: 100%;
+  border: solid 3px color(button-bg);
   
   @include mq($from: desktop) {
     max-width: max-content;
   }
-
-  &.button--ghost {
-    background-color: color(button-ghost-bg);
-    color: color(button-ghost-txt);
-
-    &:hover {
-      background-color: color(button-ghost-hover-bg);
-      color: color(button-ghost-hover-txt);
-    }
-  }
-
+  
   &:focus,
   &:focus-visible {
     outline: 3px solid color(focus);
   }
-
+  
   &:hover {
-    background-color: color(button-hover-bg);
     outline: none;
+    background-color: color(button-hover-bg);
+    border-color: color(button-hover-bg);
+  }
+  
+  &:active {
+    outline: none;
+    background-color: color(button-pressed);
+    border-color: color(button-pressed);
   }
 
-  &:active {
-    background-color: color(button-pressed);
-    outline: none;
+  &.button--neg {
+    background-color: color(button-neg-bg);
+    color: color(button-neg-txt);
+    border-color: color(button-neg-txt);
+    
+    &:hover {
+      color: color(button-neg-hover-txt);
+      background-color: color(button-neg-hover-bg);
+      border-color: color(button-neg-hover-txt);
+    }
+    
+    &:active {
+      background-color: color(button-neg-pressed);
+      border-color: color(button-neg-txt);
+    }
   }
 }

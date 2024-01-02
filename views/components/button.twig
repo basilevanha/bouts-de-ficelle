@@ -1,24 +1,38 @@
 {# Available datas :
     href : string
     label : string
-    style : 'neg' | 'default'
-    isHeader : bool
+    isNeg : bool
     class: string
+    datasAttributes: array('')
  #}
+
+{% set style = isNeg ? 'button button--neg' : 'button' %}
+
+ {% set classes = [
+    style,
+    class,
+ ]|join(' ') %}
+
+{% set attributes = datasAttributes|join(' ') %}
 
 {% if href %}
     <a
-        href={{ href }}
-        {% if isHeader %}js-menu-link{% endif %}
+        href="{{ href }}"
+        class="{{ classes }}"
+        {{ datasAttributes ? attributes : '' }}
+    >
 {% else %}
     <button
         type="button"
-{% endif %}
-        class="button {% if class %}{{ class }}{% endif %}"
+        class="{{ classes }}"
+        {{ datasAttributes ? attributes : '' }}
     >
+{% endif %}
+
         {{ label ? label : '' }}
+
 {% if href %}
     </a>
 {% else %}
-    </buttton>
+    </button>
 {% endif %}

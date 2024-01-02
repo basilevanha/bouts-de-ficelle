@@ -1,0 +1,62 @@
+.ateliers-liste {
+    background-color: color(dark);
+    border-radius: $radius-big;
+    overflow: hidden;
+    color: color(light);
+
+    &__items {
+        padding: $spacing-small;
+    }
+
+    &__item {
+        padding: $spacing-small $spacing-xsmall;
+
+        &__text {
+            @include font(bold)
+        }
+        
+        a {
+            padding: $spacing-xsmall $spacing-small;
+            display: flex;
+            align-items: center;
+            gap: $spacing-small;
+            color: currentColor;
+            border-radius: $radius-big;
+
+            .svg {
+                flex-shrink: 0;
+            }
+
+            .svg-arrow {
+                transition: margin-left .3s ease-in-out, transform .3s ease-in-out;
+                margin-left: auto;
+            }
+
+            &:hover,
+            &:focus,
+            &:focus-visible {
+                background-color: color(ateliers-hover);
+                .svg-arrow {
+                    transform: scaleX(1.2);
+                }
+            }
+        }
+        
+        &:not(:last-child) {
+            position: relative;
+            
+            ::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: translateY(-50%);
+                width: 100%;
+                height: 3px;
+                border-radius: 3px;
+                background-color: color(light);
+            }
+            
+        }
+    }
+}

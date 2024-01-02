@@ -7,6 +7,7 @@ class Header {
     this.$burgerButton    = this.$el.querySelector('[js-burger-button]');
     this.$menu            = this.$el.querySelector('[js-menu]');
     this.$menuLinks       = this.$el.querySelectorAll('[js-menu-link]');
+    this.$focusLinks       = this.$el.querySelectorAll('[js-focus-link]');
 
     this.$body            = document.querySelector('body');
     this.$header          = document.querySelector('[js-header]');
@@ -47,12 +48,16 @@ class Header {
     this._toggleMenu = this.toggleMenu.bind(this);
     this.$burgerButton.addEventListener('click', this._toggleMenu);
 
-    this.$menuLinks.forEach(link => {
-      link.addEventListener('focus', this._showHeader)
-      if(isLessThan('l')) {
+    if(isLessThan('l')) {
+      this.$menuLinks.forEach(link => {
         link.addEventListener('click', this._toggleMenu);
-      }
+      });
+    }
+
+    this.$focusLinks.forEach(link => {
+      link.addEventListener('focus', this._showHeader)
     });
+
   }
 
   showHeader(isTop) {

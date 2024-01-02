@@ -1,0 +1,33 @@
+.image-text {
+    display: flex;
+    
+    @include mq($until: 'l') {
+        flex-direction: column;
+        gap: $spacing-md;
+    }
+
+    @include mq($from: 'l') {
+        align-items: center;    
+    }
+
+    &__text {
+        @include mq($from: 'l') {
+            padding: $spacing-md;
+            flex: 0.9;
+        }
+    
+    }
+
+    &__img {
+        display: flex;
+        flex: 1.1;
+        flex-shrink: 0;
+        justify-content: center;
+    }
+
+    &.image-text--revert {
+        @include mq($from: 'l') {
+            flex-direction: row-reverse;
+        }
+    }
+}

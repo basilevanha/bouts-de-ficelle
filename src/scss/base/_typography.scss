@@ -17,19 +17,21 @@ html {
 // -----------------------------------------------------------------------------
 body {
   @include font('regular');
-  font-size: rem(18px);
+  font-size: rem(20px);
   color: color(dark);
   line-height: 2;
 }
 
-// Desktop H1
-h1 {
-  @include font(bold);
-  font-size: rem(40px);
+.h1 {
+  @include font(extra-bold);
+  font-size: rem(55px);
+  line-height: normal
+}
 
-  @include mq($until: 'm') {
-    font-size: rem(45px);
-  }
+.h2 {
+  @include font(bold);
+  line-height: normal;
+  font-size: rem(40px);
 }
 
 .a {
@@ -46,14 +48,14 @@ h1 {
 // Typeset
 // -----------------------------------------------------------------------------
 .typeset {
-
   max-width: 900px;
   margin: 0 auto;
+
   h1 {
     @include font(extra-bold);
     font-size: rem(40px);
   
-    @include mq($until: 'm') {
+    @include mq($from: 'desktop') {
       font-size: rem(45px);
     }
   }
@@ -62,7 +64,7 @@ h1 {
     @include font(bold);
     font-size: rem(38px);
   
-    @include mq($until: 'm') {
+    @include mq($from: 'desktop') {
       font-size: rem(40px);
     }
   }

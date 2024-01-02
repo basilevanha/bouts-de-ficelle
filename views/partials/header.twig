@@ -4,7 +4,7 @@
 <header class="site-header" role="navigation" js-header>
 	<div class="site-header__head">
 		<div class="site-header__logo">
-			<a href="{{ site.url}}" js-menu-link>
+			<a href="{{ site.url}}" js-focus-link>
 				<img src="{{ global.logo.url }}" alt="{{ global.logo.alt}}">
 			</a>
 		</div>
@@ -46,6 +46,7 @@
 				{% include 'components/button.twig' with {
 					'label': global.footer.contact.label,
 					'href': global.footer.contact.url,
+					datasAttributes: ['js-menu-link'],
 					'isHeader': true,
 					'class': 'site-header__body__footer__contact'
 				} %}
@@ -76,6 +77,6 @@
 	>
 		<label for="s" class="u-visually-hidden">Chercher dans le site:</label>
 		<input type="text" class"site-header__search__input" name="s" id="s" {{ function('get_search_query') }} />
-		<button type="submit" id="searchsubmit" js-menu-link>{{ icon.sprite('search', 20, 20, 'icone de recherche', site.theme.link) }}</button>
+		<button type="submit" id="searchsubmit" js-menu-link js-focus-link>{{ icon.sprite('search', 20, 20, 'icone de recherche', site.theme.link) }}</button>
 	</form>
 </header>

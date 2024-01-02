@@ -1,0 +1,25 @@
+{# 
+    {{ isHero }}
+    {{ title }}
+    {{ text }}
+    {{ btns }}
+ #}
+
+<div class="paragraph">
+    {% if isHero %}
+        <h1 class="h1">{{ title }}</h1>
+    {% else %}
+        <h2 class="h2">{{ title }}</h2>
+    {% endif %}
+    <p>{{ text }}</p>
+
+    <div class="paragraph__btns">
+        {% for btn in btns %}
+            {% include 'components/button.twig' with {
+                label: btn.label,
+                href: btn.url,
+                isNeg: loop.index > 1,
+            } %}
+        {% endfor %}
+    </div>
+</div>

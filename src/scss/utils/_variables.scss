@@ -25,6 +25,7 @@ $spacing-xsmall: 10px;
 $spacing-small: 20px;
 $spacing-md: 50px;
 $spacing-lg: 70px;
+$spacing-xl: 120px;
 
 // Radius variables
 // -----------------------------------------------------------------------------
@@ -36,6 +37,7 @@ $radius-big: 30px;
 // -----------------------------------------------------------------------------
 $color-black: #2F3B41;
 $color-white: #ffff;
+$color-transparent: rgba(0,0,0,0);
 
 $color-dark: #293665;
 $color-light: #F5F5F5;
@@ -54,34 +56,40 @@ $color-tertiary-lightened: lighten($color-tertiary, 65%);
 
 
 $default-colors: (
-  dark:               $color-dark,
-  light:              $color-light,
+  dark:                 $color-dark,
+  light:                $color-light,
 
-  primary:            $color-primary,
-  secondary:          $color-secondary,
-  tertiary:           $color-tertiary,
+  primary:              $color-primary,
+  secondary:            $color-secondary,
+  tertiary:             $color-tertiary,
 
-  bg-dark:            $color-dark-lightened,
-  bg-primary:         $color-primary-lightened,
-  bg-secondary:       $color-secondary-lightened,
-  footer-bg:          $color-dark,
+  bg-dark:              $color-dark-lightened,
+  bg-primary:           $color-primary-lightened,
+  bg-secondary:         $color-secondary-lightened,
+  footer-bg:            $color-dark,
 
-  nav-active:         $color-dark-opacity,
-  nav-hover:          $color-dark-lightened,
+  nav-active:           $color-dark-opacity,
+  nav-hover:            $color-dark-lightened,
 
-  text:               $color-dark-opacity,
-  input:              $color-dark-lightened,
+  text:                 $color-dark-opacity,
+  input:                $color-dark-lightened,
 
-  search-bg:          $color-secondary-lightened,
+  search-bg:            $color-white,
 
-  link:               $color-primary,
-  link-hover:         darken($color-primary, 5%),
+  link:                 $color-primary,
+  link-hover:           darken($color-primary, 5%),
   
-  button-bg:          $color-primary,
-  button-txt:         $color-light,
-  button-hover-bg:    lighten($color-primary, 5%),
-  button-pressed:     darken($color-primary, 5%),
+  button-bg:            $color-primary,
+  button-txt:           $color-light,
+  button-hover-bg:      lighten($color-primary, 5%),
+  button-pressed:       darken($color-primary, 5%),
 
-  focus:       $color-tertiary
+  button-neg-bg:        $color-transparent,
+  button-neg-txt:       $color-dark,
+  button-neg-hover-bg:  $color-dark-lightened,
+  button-neg-pressed:   darken($color-dark-lightened, 5%),
 
+  focus:                $color-tertiary,
+
+  ateliers-hover:       darken($color-dark, 5%)
 )

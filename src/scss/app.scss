@@ -37,18 +37,21 @@
 // Modules
 // -----------------------------------------------------------------------------
 @import 'modules/card';
+@import 'modules/paragraph';
+@import 'modules/ateliers-liste';
 
 // Partials
 // -----------------------------------------------------------------------------
 @import 'partials/footer';
 @import 'partials/header';
 @import 'partials/search';
-
+@import 'partials/image-text';
+@import 'partials/text-liste';
 
 // Templates
 // -----------------------------------------------------------------------------
 
-
+@import 'templates/accueil'
 
 // Themes
 // -----------------------------------------------------------------------------

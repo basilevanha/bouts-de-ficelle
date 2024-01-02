@@ -62,8 +62,8 @@ body {
 // Set up container
 // -----------------------------------------------------------------------------
 .container {
-  padding: null $container-padding;
-  margin: null auto;
+  padding: 0px $container-padding;
+  margin: 0px auto;
   width: 100%;
   max-width: $container-width;
   
@@ -72,7 +72,7 @@ body {
   }
   
   @include mq($until: 'm') {
-    padding: null 20px;
+    padding: 0px 20px;
   }
 }
 
