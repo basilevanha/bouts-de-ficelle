@@ -4,6 +4,7 @@
     revert: bool
     bg: string
     class: string
+    ratioImg: number
  #}
 
  {% set classes =  [
@@ -15,7 +16,7 @@
 
 
 <div
-    class="{{ classes }}"
+    class="{{ classes }} ratio-img--{{ ratioImg ? ratioImg : 100 }}"
 >
     <div class="image-text__img">
         <img src="{{ img.url }}" alt="{{ img.alt }}">

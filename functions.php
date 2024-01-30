@@ -20,16 +20,36 @@ function add_to_context($context) {
     $theme_url = get_template_directory_uri();
     
     // Get global variables from homepage (9) ACF
+    // DEV = 9
+    // STAGING = 10
     $homePageID = 9;
+
+    // Get highlight post
+    $highlightEvent_url = get_field('global-highlight', $homePageID)['event'];
+    $complete_event_url = home_url($highlightEvent_url);
+    $highlightEventID = url_to_postid($complete_event_url);
+
     $context['global'] = array(
         'themeLink' => $theme_url,
         'logo' =>  get_field('global-logo', $homePageID),
-        'highlight' =>  get_field('global-highlight', $homePageID),
+        'highlight' =>  array(
+            'toggle' => get_field('global-highlight', $homePageID)['toggle'],
+            'event' => array(
+                'title' => get_the_title($highlightEventID),                                    // Titre de l'événement
+                'start' => get_post_meta($highlightEventID, '_event_start_date', true),                      // Date de début de l'événement
+                'end' => get_post_meta($highlightEventID, '_event_end_date', true),                          // Date de fin de l'événement
+                'image' => get_post_meta($highlightEventID, '_event_banner', true),                                 // Image à la une de l'événement
+                'location' => get_post_meta($highlightEventID, '_event_location', true),
+                'content' => get_the_content($highlightEventID),                           // Contenu de l'événement
+                'category' => 'cat-a-rendre-dynamique',
+                'tag' => 'tag-a-rendre-dynamique',
+            )
+        ),
         'socials' => get_field('global-socials', $homePageID),
         'footer' => get_field('global-footer', $homePageID),
         'copyrights' => get_field('global-copyrights', $homePageID)
     );
-
+    
     return $context;
 }
 

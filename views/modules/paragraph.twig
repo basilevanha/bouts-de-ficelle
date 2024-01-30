@@ -11,7 +11,13 @@
     {% else %}
         <h2 class="h2">{{ title }}</h2>
     {% endif %}
-    <p>{{ text }}</p>
+        {% if '<p>' in text %}
+            <div class="typeset">
+                {{ text }}
+            </div>
+        {% else %}
+            <p>{{ text }}</p>
+        {% endif %}
 
     <div class="paragraph__btns">
         {% for btn in btns %}

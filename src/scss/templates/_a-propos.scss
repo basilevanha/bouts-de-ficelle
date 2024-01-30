@@ -1,0 +1,16 @@
+[template="a-propos"] {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+
+        .paragraph--our-members {
+            margin: $spacing-md 0px;
+
+            @include mq($from: desktop) {
+                max-width: 40%;
+            }
+        }
+    }
+}

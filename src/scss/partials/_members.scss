@@ -1,0 +1,10 @@
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-small;
+
+    &__card-wrapper {
+        display: flex;
+        flex: 1;
+    }
+}

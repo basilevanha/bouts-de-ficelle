@@ -39,6 +39,7 @@
 @import 'modules/card';
 @import 'modules/paragraph';
 @import 'modules/ateliers-liste';
+@import 'modules/member-card';
 
 // Partials
 // -----------------------------------------------------------------------------
@@ -47,11 +48,13 @@
 @import 'partials/search';
 @import 'partials/image-text';
 @import 'partials/text-liste';
+@import 'partials/members';
 
 // Templates
 // -----------------------------------------------------------------------------
 
-@import 'templates/accueil'
+@import 'templates/accueil';
+@import 'templates/a-propos';
 
 // Themes
 // -----------------------------------------------------------------------------

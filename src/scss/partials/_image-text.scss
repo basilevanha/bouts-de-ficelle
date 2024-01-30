@@ -1,5 +1,6 @@
 .image-text {
     display: flex;
+    margin: $spacing-md 0px;
     
     @include mq($until: 'l') {
         flex-direction: column;
@@ -13,21 +14,40 @@
     &__text {
         @include mq($from: 'l') {
             padding: $spacing-md;
-            flex: 0.9;
+            flex: 1 0;
         }
     
     }
 
     &__img {
         display: flex;
-        flex: 1.1;
-        flex-shrink: 0;
+        flex: 1 0;
         justify-content: center;
     }
 
     &.image-text--revert {
         @include mq($from: 'l') {
             flex-direction: row-reverse;
+        }
+    }
+
+    &.ratio-img--110 {
+        .image-text__img {
+            flex: 1.1;
+        }
+
+        .image-text__text {
+            flex: 0.9 0 auto;
+        }
+    }
+
+    &.ratio-img--90 {
+        .image-text__img {
+            flex: 0.9;
+        }
+
+        .image-text__text {
+            flex: 1.1 0;
         }
     }
 }

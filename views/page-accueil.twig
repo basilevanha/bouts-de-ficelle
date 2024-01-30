@@ -43,6 +43,29 @@
 		
 		{# <h2 class="h2">{{ actus.titre }}</h2> #}
 
+		{% if(global.highlight.toggle == true) %}
+
+			<div>
+				<p class="h2">{{ global.highlight.event.title }}</p>
+				<img src="{{global.highlight.event.image}}" alt="{{ global.highlight.event.title}}">
+				<p>Début : {{ global.highlight.event.start }}</p>
+
+				<br>
+
+				<p>Fin : {{ global.highlight.event.end }}</p>
+				<span>Category : {{ global.highlight.event.category }}</span>
+
+				<br>
+
+				<span>Tag : {{ global.highlight.event.tag }}</span>
+				<p> localisation : {{ global.highlight.event.location }} </p>
+				<p>content : {{ global.highlight.event.content }}</p>
+
+			</div>
+
+		{% endif %}
+
+
 		{% include 'partials/image-text.twig' with {
 			paragraphDatas: coursDatas,
 			img: cours.img,
