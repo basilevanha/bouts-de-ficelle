@@ -38,12 +38,13 @@ class StarterSite extends Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+		global $globals;	// Enable the use of $globals variables (set up un functions.php)
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menus']  = array(
-		'header'=> Timber::get_menu(2),
-		'footer'=> Timber::get_menu(6),
+			'header'=> Timber::get_menu($globals['menus_header_ID']),
+			'footer'=> Timber::get_menu($globals['menus_footer_ID']),
 		);
 		$context['site']  = $this;
 

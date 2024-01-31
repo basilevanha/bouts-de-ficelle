@@ -46,20 +46,20 @@
 		{% if(global.highlight.toggle == true) %}
 
 			<div>
-				<p class="h2">{{ global.highlight.event.title }}</p>
-				<img src="{{global.highlight.event.image}}" alt="{{ global.highlight.event.title}}">
-				<p>Début : {{ global.highlight.event.start }}</p>
+				<p class="h2">{{ global.highlight.title }}</p>
+				<img src="{{global.highlight.image}}" alt="{{ global.highlight.title}}">
+				<p>Début : {{ global.highlight.start }}</p>
 
 				<br>
 
-				<p>Fin : {{ global.highlight.event.end }}</p>
-				<span>Category : {{ global.highlight.event.category }}</span>
+				<p>Fin : {{ global.highlight.end }}</p>
+				<span>Category : {{ global.highlight.category }}</span>
 
 				<br>
 
-				<span>Tag : {{ global.highlight.event.tag }}</span>
-				<p> localisation : {{ global.highlight.event.location }} </p>
-				<p>content : {{ global.highlight.event.content }}</p>
+				<span>Tag : {{ global.highlight.tag }}</span>
+				<p> localisation : {{ global.highlight.location }} </p>
+				<p>content : {{ global.highlight.content }}</p>
 
 			</div>
 

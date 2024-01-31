@@ -6,7 +6,7 @@
 $context = Timber::context();
 
 $args = array(
-    'post_type'      => 'tribe_events', // Remplacez par le type de post réel
+    'post_type'      => 'event_listing', // Remplacez par le type de post réel
     'post_status'    => 'publish',
     'posts_per_page' => -1, // Pour récupérer tous les événements
 );

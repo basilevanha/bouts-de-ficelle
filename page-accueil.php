@@ -6,11 +6,11 @@
 
 $context                = Timber::context();
 
-// DEV = 20
-// STAGING = 194
-$ateliersPageID = 20;
+global $globals;
+$ateliers_ID = $globals['page_ateliers_ID'];
+
 $array_fill = array();
-$items = get_field('ateliers-liste', $ateliersPageID)['items'];
+$items = get_field('ateliers-liste', $ateliers_ID)['items'];
 
 for ($i = 0; $i < count($items) ; $i++) {
     $postID = url_to_postid($items[ $i ]);

@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 
-{% set template = 'evenements' %}
+{% set template = 'spectacles' %}
 
 {# Variables disponibles :
 		{{ dump(hero) }}
@@ -11,7 +11,7 @@
 
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-		BIENVENUE SUR LA PAGE EVENEMENTS
+		BIENVENUE SUR LA PAGE SPECTACLES
 		
 		<h1>HERO</h1>
 		<p>{{ hero.titre }}</p>
@@ -20,13 +20,17 @@
 		<p>{{ hero.btn.label }}</p>
 		<p>{{ hero.btn.url }}</p>
 
-		<h1>NOS ATELIERS</h1>
+		<h1>Nos Spectacles</h1>
 		<p>{{ liste.titre }}</p>
 		
 		<ul>
-			{% for evenement in evenements %}
+			{% for spectacle in spectacles %}
 				<li>
-					{{evenement.id}}
+					{{spectacle.id}}
+					{{spectacle.title}}
+					{{spectacle.img.alt}}
+					{{spectacle.img.url}}
+					{{spectacle.wysiwyg}}
 				</li>
 			{% endfor %}
 		</ul>

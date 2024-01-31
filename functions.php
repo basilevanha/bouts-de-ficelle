@@ -14,15 +14,22 @@ Timber\Timber::init();
 // Sets the directories (inside your theme) to find .twig files.
 Timber::$dirname = [ 'templates', 'views' ];
 
+function global_variables() {
+    global $globals;
+	$globals['homepage_ID'] = 10;          // DEV = 9  | STAGING = 10
+    $globals['page_ateliers_ID'] = 194;    // DEV = 20 | STAGING = 194
+    $globals['menus_header_ID'] = 35;      // DEV = 2  | STAGING = 35
+	$globals['menus_footer_ID'] = 36;      // DEV = 6  | STAGING = 36
+}
+add_action( 'after_setup_theme', 'global_variables' );
 
 // Function to add custom data to Timber context
 function add_to_context($context) {
     $theme_url = get_template_directory_uri();
     
-    // Get global variables from homepage (9) ACF
-    // DEV = 9
-    // STAGING = 10
-    $homePageID = 9;
+    // Get global variables set up in homepage with ACF
+    global $globals;
+    $homePageID = $globals['homepage_ID'];
 
     // Get highlight post
     $highlightEvent_url = get_field('global-highlight', $homePageID)['event'];
@@ -34,7 +41,6 @@ function add_to_context($context) {
         'logo' =>  get_field('global-logo', $homePageID),
         'highlight' =>  array(
             'toggle' => get_field('global-highlight', $homePageID)['toggle'],
-            'event' => array(
                 'title' => get_the_title($highlightEventID),                                    // Titre de l'événement
                 'start' => get_post_meta($highlightEventID, '_event_start_date', true),                      // Date de début de l'événement
                 'end' => get_post_meta($highlightEventID, '_event_end_date', true),                          // Date de fin de l'événement
@@ -43,7 +49,6 @@ function add_to_context($context) {
                 'content' => get_the_content($highlightEventID),                           // Contenu de l'événement
                 'category' => 'cat-a-rendre-dynamique',
                 'tag' => 'tag-a-rendre-dynamique',
-            )
         ),
         'socials' => get_field('global-socials', $homePageID),
         'footer' => get_field('global-footer', $homePageID),

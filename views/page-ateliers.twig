@@ -26,7 +26,11 @@
 		<ul>
 			{% for atelier in ateliers %}
 				<li>
-					{{atelier.id}}
+					{{ atelier.id }}
+					{{ atelier.title }}
+					{{ atelier.img.alt }}
+					{{ atelier.img.url }}
+					{{ atelier.wysiwyg }}
 				</li>
 			{% endfor %}
 		</ul>
