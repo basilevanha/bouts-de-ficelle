@@ -24,6 +24,16 @@
 	ratioImg: 120
  } %}
 
+ {% set offresDatas = {
+	paragraphDatas: {
+		title: offres.titre,
+		text: offres.texte,
+	},
+	img: offres.img,
+	revert: true,
+	ratioImg: 150
+ } %}
+
  {% set goutsDatas = {
 	paragraphDatas: {
 		title: gouts.titre,
@@ -45,30 +55,23 @@
 
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-		{% include 'partials/image-text.twig' with heroDatas %}
+		<div class="section--hero">
+			{% include 'partials/image-text.twig' with heroDatas %}
+		</div>
 
+		<div class="section--offres">
+			{% include 'partials/image-text.twig' with offresDatas %}
+		</div>
 
-		<h1>OFFRES</h1>
-		<p>{{ offres.titre }}</p>
-		<p>{{ offres.texte }}</p>
-		<img src="{{ offres.img.url }}" alt="{{ offres.img.alt }}">
+		<div class="section--prix">
+			{% include 'partials/offers-list.twig' with { offers: offres.cartes } %}
+		</div>
 
-		{% for carte in offres.cartes %}
-			<ul>
-				<li>{{ carte.titre }}</li>
-				<li>{{ carte.prix }}</li>
-				<li>{{ carte.unite }}</li>
-				<li>{{ carte.horaire }}</li>
-				<li>{{ carte.personne }}</li>
-				<li>{{ carte.calendrier }}</li>
-			</ul>
-		{% endfor %}
-
-		<div class="paragraph--gouts">
+		<div class="section--gouts">
 			{% include 'partials/image-text.twig' with goutsDatas %}
 		</div>
 
-		<div class="paragraph--spectacle">
+		<div class="section--spectacle">
 			{% include 'partials/image-text.twig' with spectacleDatas %}
 		</div>
 	</div>

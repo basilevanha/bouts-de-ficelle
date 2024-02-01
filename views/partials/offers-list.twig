@@ -1,0 +1,20 @@
+<div class="offers-list">
+    {% for card in offers %}
+        {% set datas = {
+            img: card.img,
+            title: card.titre,
+            price: card.prix,
+            disclaimer: card.disclaimer,
+            unit: card.unite,
+            schedule: card.horaires,
+            number: card.nombre,
+            calendar: card.calendrier,
+            btn: card.btn
+        } %}
+        
+        <div class="offers-list__card-wrapper">
+            {% include 'modules/offer-card.twig' with datas %}
+        </div>
+
+    {% endfor %}
+</div>

@@ -1,9 +1,12 @@
 .members {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(320px, 1fr));
     gap: $spacing-md;
     container-type: inline-size;
     container-name: members-container;
+
+    @include mq($from: xs) {
+        grid-template-columns: repeat(auto-fill,minmax(320px, 1fr));
+    }
     
     @include mq($from: 1490px) {
         padding-bottom: 200px;

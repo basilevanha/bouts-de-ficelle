@@ -49,10 +49,10 @@ $color-primary: #EF916D;
 $color-primary-lightened: lighten($color-primary, 26%);
 
 $color-secondary: #69A99B;
-$color-secondary-lightened: lighten($color-secondary, 25%);
+$color-secondary-lightened: lighten($color-secondary, 35%);
 
 $color-tertiary: #BE3E82;
-$color-tertiary-lightened: lighten($color-tertiary, 65%);
+$color-tertiary-lightened: lighten($color-tertiary, 40%);
 
 
 $default-colors: (
@@ -66,6 +66,7 @@ $default-colors: (
   bg-dark:              $color-dark-lightened,
   bg-primary:           $color-primary-lightened,
   bg-secondary:         $color-secondary-lightened,
+  bg-tertiary:          $color-tertiary-lightened,
   footer-bg:            $color-dark,
 
   nav-active:           $color-dark-opacity,
