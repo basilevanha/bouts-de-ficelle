@@ -45,22 +45,22 @@
 
 		{% if(global.highlight.toggle == true) %}
 
-			<div>
-				<p class="h3">{{ global.highlight.title }}</p>
+			<div class="highlight">
 				<img src="{{global.highlight.image}}" alt="{{ global.highlight.title}}">
-				<p>Début : {{ global.highlight.start }}</p>
-
-				<br>
-
-				<p>Fin : {{ global.highlight.end }}</p>
-				<span>Category : {{ global.highlight.category }}</span>
-
-				<br>
-
-				<span>Tag : {{ global.highlight.tag }}</span>
-				<p> localisation : {{ global.highlight.location }} </p>
-				<p>content : {{ global.highlight.content }}</p>
-
+				<div class="highlight__infos">
+					<p class="h3">{{ global.highlight.title }}</p>
+					<p>Début : {{ global.highlight.start }}</p>
+					<hr>
+					<p>Fin : {{ global.highlight.end }}</p>
+					<hr>
+					<span>Category : {{ global.highlight.category }}</span>
+					<hr>
+					<span>Tag : {{ global.highlight.tag }}</span>
+					<hr>
+					<p> localisation : {{ global.highlight.location }} </p>
+					<hr>
+					<p>content : {{ global.highlight.content }}</p>
+				</div>
 			</div>
 
 		{% endif %}
