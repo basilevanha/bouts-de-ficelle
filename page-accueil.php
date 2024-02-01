@@ -12,12 +12,14 @@ $ateliers_ID = $globals['page_ateliers_ID'];
 $array_fill = array();
 $items = get_field('ateliers-liste', $ateliers_ID)['items'];
 
-for ($i = 0; $i < count($items) ; $i++) {
-    $postID = url_to_postid($items[ $i ]);
-    $array_fill[$i] = array(
-        'icon' => get_field('icon', $postID),
-        'post' => Timber::get_post($postID)
-    );
+if ($items) {
+    for ($i = 0; $i < count($items) ; $i++) {
+        $postID = url_to_postid($items[ $i ]);
+        $array_fill[$i] = array(
+            'icon' => get_field('icon', $postID),
+            'post' => Timber::get_post($postID)
+        );
+    }
 }
 
 $context['post']        = Timber::get_post();
