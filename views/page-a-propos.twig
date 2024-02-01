@@ -8,7 +8,7 @@
 	{{ dump(archives) }}
  #}
 
- {% set heroDatas = {
+{% set heroDatas = {
 	paragraphDatas: {
 		title: hero.titre,
 		text: hero.texte
@@ -29,25 +29,29 @@
 	]
  } %}
 
+  {% set archivesDatas = {
+	title: fichiers.titre,
+	text: fichiers.texte,
+ } %}
+
 
 {% block main %}
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 		
 		{% include 'partials/image-text.twig' with heroDatas %}
-
+		
 		<img src="{{ groupe.url }}" alt="{{ groupe.alt }}">
 
 		<div class="paragraph--our-members">
 			{% include 'modules/paragraph.twig' with equipeDatas %}
 		</div>
 
-    	{% include 'partials/members.twig' with {members: equipe.cartes} %}
+    	{% include 'partials/members.twig' with {members: membres} %}
 		
-
-		<h1>ARCHIVES</h1>
-		<p>{{ fichiers.titre }}</p>
-		<p>{{ fichiers.texte }}</p>
-		<p>{{ fichiers.embed }}</p>
+		<div class="paragraph--archives">
+			{% include 'modules/paragraph.twig' with archivesDatas %}
+			<p>{{ fichiers.embed }}</p>
+		</div>
 
 	</div>
 {% endblock %}

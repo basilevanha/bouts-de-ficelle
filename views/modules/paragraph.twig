@@ -19,13 +19,15 @@
             <p>{{ text }}</p>
         {% endif %}
 
-    <div class="paragraph__btns">
-        {% for btn in btns %}
-            {% include 'components/button.twig' with {
-                label: btn.label,
-                href: btn.url,
-                isNeg: loop.index > 1,
-            } %}
-        {% endfor %}
-    </div>
+    {% if btns %}
+        <div class="paragraph__btns">
+            {% for btn in btns %}
+                {% include 'components/button.twig' with {
+                    label: btn.label,
+                    href: btn.url,
+                    isNeg: loop.index > 1,
+                } %}
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>

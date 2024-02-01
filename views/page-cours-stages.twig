@@ -9,18 +9,44 @@
 		{{ dump(spectacle) }}
  #}
 
+{% set heroDatas = {
+	paragraphDatas: {
+		title: hero.titre,
+		text: hero.texte,
+		btns: [
+			{
+				label: hero.btn.label,
+				url: hero.btn.url
+			}
+		]
+	},
+	img: hero.img,
+	ratioImg: 120
+ } %}
+
+ {% set goutsDatas = {
+	paragraphDatas: {
+		title: gouts.titre,
+		text: gouts.texte,
+	},
+	img: gouts.img,
+	revert: true
+ } %}
+
+  {% set spectacleDatas = {
+	paragraphDatas: {
+		title: spectacle.titre,
+		text: spectacle.texte,
+	},
+	img: spectacle.img,
+ } %}
+
 {% block main %}
 
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-		BIENVENUE SUR LA PAGE COURS & STAGES
-		
-		<h1>HERO</h1>
-		<p>{{ hero.titre }}</p>
-		<p>{{ hero.texte }}</p>
-		<p>{{ hero.btn.label }}</p>
-		<p>{{ hero.btn.url }}</p>
-		<img src="{{ hero.img.url }}" alt="{{ hero.img.alt }}">-
+		{% include 'partials/image-text.twig' with heroDatas %}
+
 
 		<h1>OFFRES</h1>
 		<p>{{ offres.titre }}</p>
@@ -28,25 +54,23 @@
 		<img src="{{ offres.img.url }}" alt="{{ offres.img.alt }}">
 
 		{% for carte in offres.cartes %}
-		<ul>
-			<li>{{ carte.titre }}</li>
-			<li>{{ carte.prix }}</li>
-			<li>{{ carte.unite }}</li>
-			<li>{{ carte.horaire }}</li>
-			<li>{{ carte.personne }}</li>
-			<li>{{ carte.calendrier }}</li>
-		</ul>
+			<ul>
+				<li>{{ carte.titre }}</li>
+				<li>{{ carte.prix }}</li>
+				<li>{{ carte.unite }}</li>
+				<li>{{ carte.horaire }}</li>
+				<li>{{ carte.personne }}</li>
+				<li>{{ carte.calendrier }}</li>
+			</ul>
 		{% endfor %}
 
-		<h1>GOUTS</h1>
-		<p>{{ gouts.titre }}</p>
-		<p>{{ gouts.texte }}</p>
-		<img src="{{ gouts.img.url }}" alt="{{ gouts.img.alt }}">
+		<div class="paragraph--gouts">
+			{% include 'partials/image-text.twig' with goutsDatas %}
+		</div>
 
-		<h1>SPECTACLE</h1>
-		<p>{{ spectacle.titre }}</p>
-		<p>{{ spectacle.texte }}</p>
-		<img src="{{ spectacle.img.url }}" alt="{{ spectacle.img.alt }}">
+		<div class="paragraph--spectacle">
+			{% include 'partials/image-text.twig' with spectacleDatas %}
+		</div>
 	</div>
 	<!-- /content-wrapper -->
 {% endblock %}

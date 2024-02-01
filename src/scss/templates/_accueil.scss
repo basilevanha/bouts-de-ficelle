@@ -23,6 +23,10 @@
                     border-radius: $radius-big;
                 }
             }
+
+            .paragraph {
+                padding: $spacing-md;
+            }
         }
 
         .image-text--cours {

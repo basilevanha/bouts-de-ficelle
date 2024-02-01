@@ -2,12 +2,14 @@
     {% for member in members %}
         {% set memberDatas = {
             img: member.img,
-            name: member.nom,
-            role: member.role
+            name: member.title,
+            role: member.fonction
         } %}
     
         <div class="members__card-wrapper">
-            {% include 'modules/member-card.twig' with memberDatas %}
+            <div class="members__card-wrapper__container">
+                {% include 'modules/member-card.twig' with memberDatas %}
+            </div>
         </div>
 
     {% endfor %}

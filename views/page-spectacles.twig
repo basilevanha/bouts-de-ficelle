@@ -4,36 +4,37 @@
 
 {# Variables disponibles :
 		{{ dump(hero) }}
-		{{ dump(liste) }}
+		{{ dump(spectacles) }}
  #}
+
+   {% set heroDatas = {
+	paragraphDatas: {
+		title: hero.titre,
+		text: hero.texte,
+		btns: [
+			{
+				label: hero.btn.label,
+				url: hero.btn.url
+			}
+		]
+	},
+	revert: true,
+	img: hero.img,
+ } %}
+
 
 {% block main %}
 
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-		BIENVENUE SUR LA PAGE SPECTACLES
-		
-		<h1>HERO</h1>
-		<p>{{ hero.titre }}</p>
-		<p>{{ hero.texte }}</p>
-		<img src="{{ hero.img.url }}" alt="{{ hero.img.alt }}">
-		<p>{{ hero.btn.label }}</p>
-		<p>{{ hero.btn.url }}</p>
+		<div class="section--hero">
+			{% include 'partials/image-text.twig' with heroDatas %}
+		</div>
 
-		<h1>Nos Spectacles</h1>
-		<p>{{ liste.titre }}</p>
-		
-		<ul>
-			{% for spectacle in spectacles %}
-				<li>
-					{{spectacle.id}}
-					{{spectacle.title}}
-					{{spectacle.img.alt}}
-					{{spectacle.img.url}}
-					{{spectacle.wysiwyg}}
-				</li>
-			{% endfor %}
-		</ul>
+		<div class="section--spectacles">
+			<h2 class="h2">{{ liste.titre }}</h2>
+			{% include 'partials/cards-list.twig' with {cards: spectacles} %}
+		</div>
 	</div>
 	<!-- /content-wrapper -->
 {% endblock %}

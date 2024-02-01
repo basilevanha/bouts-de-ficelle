@@ -4,37 +4,37 @@
 
 {# Variables disponibles :
 		{{ dump(hero) }}
-		{{ dump(liste) }}
+		{{ dump(ateliers) }}
  #}
+
+  {% set heroDatas = {
+	paragraphDatas: {
+		title: hero.titre,
+		text: hero.texte,
+		btns: [
+			{
+				label: hero.btn.label,
+				url: hero.btn.url
+			}
+		]
+	},
+	revert: true,
+	img: hero.img,
+ } %}
+
 
 {% block main %}
 
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-		BIENVENUE SUR LA PAGE ATELIERS
+		<div class="section--hero">
+			{% include 'partials/image-text.twig' with heroDatas %}
+		</div>
 		
-		<h1>HERO</h1>
-		<p>{{ hero.titre }}</p>
-		<p>{{ hero.texte }}</p>
-		<img src="{{ hero.img.url }}" alt="{{ hero.img.alt }}">
-		<p>{{ hero.btn.label }}</p>
-		<p>{{ hero.btn.url }}</p>
-
-		<h1>NOS ATELIERS</h1>
-		<p>{{ liste.titre }}</p>
-		
-		<ul>
-			{% for atelier in ateliers %}
-				<li>
-					{{ atelier.id }}
-					{{ atelier.title }}
-					{{ atelier.img.alt }}
-					{{ atelier.img.url }}
-					{{ atelier.wysiwyg }}
-				</li>
-			{% endfor %}
-		</ul>
-
+		<div class="section--ateliers">
+			<h2 class="h2">{{ liste.titre }}</h2>
+			{% include 'partials/cards-list.twig' with {cards: ateliers} %}
+		</div>
 	</div>
 	<!-- /content-wrapper -->
 {% endblock %}

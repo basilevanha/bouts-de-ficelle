@@ -1,9 +1,11 @@
 .member-card {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    border-radius: $radius-big;
+    border-radius: $radius-small;
     border: 3px solid color(dark);
     position: relative;
-    background-color: color(light);
+    background-color: color(dark);
     margin-right: $spacing-small;
     margin-bottom: $spacing-small;
 
@@ -16,15 +18,15 @@
         top: $spacing-small;
         left: $spacing-small;
         background-color: color(secondary);
-        border-radius: $radius-big;
+        border-radius: $radius-small;
     }
     
     &__img {
         position: relative;
         width: 100%;
         padding-top: 100%;
-        border-top-right-radius: $radius-big;
-        border-top-left-radius: $radius-big;
+        border-top-right-radius: $radius-small;
+        border-top-left-radius: $radius-small;
         overflow: hidden;
         
         img {
@@ -40,10 +42,15 @@
     &__infos {
         padding: $spacing-small $spacing-small $spacing-lg;
         text-align: center;
+        background-color: color(light);
+        border-bottom-left-radius: $radius-small;
+        border-bottom-right-radius: $radius-small;
+        flex: 1;
+
 
         &__name {
             @include font(bold);
             font-size: rem(22px);
         }
-    }
+    }    
 }

@@ -1,0 +1,20 @@
+<div class="cards-list">
+    {% for card in cards %}
+        {% set datas = {
+            img: card.img,
+            title: card.title,
+            description: card.description,
+            btn: {
+                label: "En savoir plus (statique)",
+                href: card.guid
+            }
+        } %}
+        
+        <div class="cards-list__card-wrapper">
+            <div class="cards-list__card-wrapper__container">
+                {% include 'modules/card.twig' with datas %}
+            </div>
+        </div>
+
+    {% endfor %}
+</div>

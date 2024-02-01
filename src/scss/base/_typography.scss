@@ -34,6 +34,12 @@ body {
   font-size: rem(40px);
 }
 
+.h3 {
+  @include font(bold);
+  line-height: normal;
+  font-size: rem(35px);
+}
+
 .a {
   color: color(link);
   text-decoration: underline;

@@ -1,0 +1,37 @@
+.cards-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(400px, 1fr));
+    gap: $spacing-md;
+    container-type: inline-size;
+    container-name: cards-container;
+    
+    @include mq($from: 1360px) {
+        padding: 100px 0;
+    }
+
+    &__card-wrapper {
+        container-type: inline-size;
+        container-name: card-container;
+
+        &__container {
+            display: flex;
+            height: 100%;
+        }
+
+        &:nth-child(3n + 1) {
+            .cards-list__card-wrapper__container {
+                @container card-container (width < 40cqw) {
+                    transform: translateY(-100px)
+                }
+            }
+        }
+
+        &:nth-child(3n + 3) {
+            .cards-list__card-wrapper__container {
+                @container card-container (width < 40cqw) {
+                    transform: translateY(100px)
+                }
+            }
+        }
+    }
+}

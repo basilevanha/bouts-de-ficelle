@@ -26,10 +26,13 @@
     }
 
     &__logo {
-        margin-right: $spacing-small;
         display: flex;
         height: 30px;
         transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+        
+        @include mq($until: desktop) {
+            margin-right: $spacing-small;
+        }
 
         img {
             height: 100%;
@@ -121,6 +124,7 @@
 
                 @include mq($from: desktop) {
                     flex-shrink: 0;
+                    margin: 0 2px;
                 }
 
 
