@@ -31,7 +31,7 @@ function add_to_context($context) {
     global $globals;
     $homePageID = $globals['homepage_ID'];
 
-    // Get highlight post
+    // Get highlight post ID
     $highlightEvent_url = get_field('global-highlight', $homePageID)['event'];
     $complete_event_url = home_url($highlightEvent_url);
     $highlightEventID = url_to_postid($complete_event_url);
@@ -41,14 +41,13 @@ function add_to_context($context) {
         'logo' =>  get_field('global-logo', $homePageID),
         'highlight' =>  array(
             'toggle' => get_field('global-highlight', $homePageID)['toggle'],
-                'title' => get_the_title($highlightEventID),                                    // Titre de l'événement
-                'start' => get_post_meta($highlightEventID, '_event_start_date', true),                      // Date de début de l'événement
-                'end' => get_post_meta($highlightEventID, '_event_end_date', true),                          // Date de fin de l'événement
-                'image' => get_post_meta($highlightEventID, '_event_banner', true),                                 // Image à la une de l'événement
-                'location' => get_post_meta($highlightEventID, '_event_location', true),
-                'content' => get_the_content($highlightEventID),                           // Contenu de l'événement
-                'category' => 'cat-a-rendre-dynamique',
-                'tag' => 'tag-a-rendre-dynamique',
+            'post' => get_post_meta($highlightEventID),
+            'title' => get_the_title($highlightEventID),                                    // Titre de l'événement
+            'start' => get_post_meta($highlightEventID, '_event_start_date', true),                      // Date de début de l'événement
+            'location' => get_post_meta($highlightEventID, '_event_location', true),
+            'content' => get_the_content($highlightEventID),                           // Contenu de l'événement
+            'image' => get_the_post_thumbnail_url($highlightEventID),
+            'type' => get_field('type_evenement', $highlightEventID) ? : false
         ),
         'socials' => get_field('global-socials', $homePageID),
         'footer' => get_field('global-footer', $homePageID),
@@ -60,5 +59,14 @@ function add_to_context($context) {
 
 // Hook the function into Timber context
 add_filter('timber/context', 'add_to_context');
+
+// Ajoute un filtre qui met à jour la bannière Event manager avec la featured image (définie par ACF)
+function my_acf_save_post( $post_id ) {
+    if(get_post_type($post_id) == 'event_listing') {
+        update_post_meta($post_id, '_event_banner', get_the_post_thumbnail_url($post_id));
+    }
+}
+
+add_action('acf/save_post', 'my_acf_save_post', 10, 3);
 
 new StarterSite();
