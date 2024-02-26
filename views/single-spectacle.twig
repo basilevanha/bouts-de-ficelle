@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block main %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+
+			<div class="single-spectacle__hero">
+				<img src="{{ post.thumbnail.src|resize(1200, 300) }}"
+			</div>
+			Spectacccle
+			
+		</article>
+	</div>
+	<!-- /content-wrapper -->
+{% endblock %}
