@@ -41,28 +41,9 @@
 			class: "image-text--hero"
 		} %}
 		
-		<h2 class="h2">{{ actus.titre }}</h2>
-
 		{% if(global.highlight.toggle == true) %}
-
-			<div class="highlight">
-				<img src="{{global.highlight.image}}" alt="{{ global.highlight.title}}">
-				<div class="highlight__infos">
-					<p class="h3">{{ global.highlight.title }}</p>
-					<p>Début : {{ global.highlight.start }}</p>
-					<hr>
-					<p>Fin : {{ global.highlight.end }}</p>
-					<hr>
-					<span>Category : {{ global.highlight.category }}</span>
-					<hr>
-					<span>Tag : {{ global.highlight.tag }}</span>
-					<hr>
-					<p> localisation : {{ global.highlight.location }} </p>
-					<hr>
-					<p>content : {{ global.highlight.content }}</p>
-				</div>
-			</div>
-
+			<h2 class="h2">{{ actus.titre }}</h2>
+			{% include 'modules/highlight.twig' with {event: global.highlight} %}
 		{% endif %}
 
 

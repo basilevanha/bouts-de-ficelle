@@ -1,0 +1,33 @@
+{# 
+    event: {
+        image: string,
+        title: string,
+        start: date,
+        location: string,
+        edition: url_to_post
+    }
+ #}
+
+<div class="highlight">
+    {# {{ dump(event.post) }} #}
+    <div class="highlight__picture">
+        <img src="{{ event.image }}" alt="{{ event.title }}">
+    </div>
+    <div class="highlight__wrapper">
+        <div class="highlight__content__main">
+            <div class="highlight__content__tags">
+            </div>
+            <p class="highlight__content__title">{{ event.title }}</p>
+            <p class="highlight__content__time">{{ event.start|date("d F \\à\\ H:i") }}</p>
+            <p class="highlight__content__location"></p>
+            {% include 'components/button.twig' with {
+                href: btn.url,
+                label: btn.label
+            } %}
+        </div>
+        <div class="highlight__content__date">
+            <span>{{ event.start|date('M') }}</span>
+            <span>{{ event.start|date('d') }}</span>
+        </div>
+    </div>
+</div>
