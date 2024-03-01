@@ -41,8 +41,8 @@
 			class: "image-text--hero"
 		} %}
 		
-		{% if(global.highlight.toggle == true) %}
-			<h2 class="h2">{{ actus.titre }}</h2>
+		{% if (global.highlight.toggle == true) %}
+			{# <h2 class="h2">{{ actus.titre }}</h2> #}
 			{% include 'modules/highlight.twig' with {event: global.highlight} %}
 		{% endif %}
 

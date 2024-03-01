@@ -1,38 +1,117 @@
 .highlight {
-    display: flex;
-    background-color: color(bg-dark);
-    padding: $spacing-md;
+    background-color: color(dark);
+    position: relative;
+    border-radius: $radius-small;
+    overflow: hidden;
+    margin: $spacing-md 0;
+    
+    @include mq($from: 'l') {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
     &__picture {
+        flex: 1;
+        background-color: color(secondary);
         
+        @include mq($from: 'l') {
+            max-width: 450px;
+        }
+
+        &__wrapper {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     &__wrapper {
+        display: flex;
+        padding: $spacing-small;
+        flex: 1;
         
     }
 
-    &__content {
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
 
-        &__main {
-            &__tags {
-    
-            }
-    
-            &__title {
-    
-            }
-    
-            &__time {
-    
-            }
-    
-            &__location {
-    
-            }
+        @include mq($from: 'l') {
+            padding-right: $spacing-xsmall;
         }
 
-        &__date {
+        &__tags {
 
+        }
+
+        &__title,
+        &__time,
+        &__location {
+            color: color(light);
+            font-size: rem(20px);
+            line-height: 1;
+            margin-bottom: $spacing-small;
+        }
+        
+        &__title {
+            color: color(light);
+            @include font(extra-bold);
+            font-size: rem(30px);
+        }
+        
+        &__time,
+        &__location {
+            display: flex;
+            align-items: center;
+            gap: $spacing-xsmall;
+        }
+
+        &__button {
+            @include mq($from: 'l') {
+                width: unset;
+                align-self: flex-start;
+            }
+        }
+    }
+
+    &__date {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+        padding: $spacing-xsmall $spacing-small;
+        background-color: color(light);
+        border-radius: $radius-small;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+        @include mq($until: 'l') {
+            position: absolute;
+            top: $spacing-small;
+            left: $spacing-small;
+        }
+
+        .month,
+        .day {
+            @include font(bold);
+            line-height: 1;
+        }
+
+        .month {
+            font-size: rem(15px);
+        }
+
+        .day {
+            font-size: rem(30px);
         }
     }
 }

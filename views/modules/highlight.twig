@@ -1,3 +1,6 @@
+{# Macros #}
+{% import 'atoms/icon.twig' as icon %}
+
 {# 
     event: {
         image: string,
@@ -9,25 +12,33 @@
  #}
 
 <div class="highlight">
-    {# {{ dump(event.post) }} #}
     <div class="highlight__picture">
-        <img src="{{ event.image }}" alt="{{ event.title }}">
+        <div class="highlight__picture__wrapper">
+            <img src="{{ event.image }}" alt="{{ event.title }}">
+        </div>
     </div>
     <div class="highlight__wrapper">
-        <div class="highlight__content__main">
-            <div class="highlight__content__tags">
+        <div class="highlight__main">
+            <div class="highlight__main__tags">
             </div>
-            <p class="highlight__content__title">{{ event.title }}</p>
-            <p class="highlight__content__time">{{ event.start|date("d F \\à\\ H:i") }}</p>
-            <p class="highlight__content__location"></p>
+            {% if event.title %}<p class="highlight__main__title"><span></span>{{ event.title }}</p>{% endif %}
+            {% if event.start %}<p class="highlight__main__time">
+                {{ icon.sprite('time', 20, 20, "icone d'horloge", site.theme.link ) }}
+                {{ event.start|date("d F \\à\\ H:i") }}
+            </p>{% endif %}
+            {% if event.location %}<p class="highlight__main__location">
+                {{ icon.sprite('localisation', 20, 20, 'icone de localisation', site.theme.link ) }}
+                {{ event.location }}
+            </p>{% endif %}
             {% include 'components/button.twig' with {
-                href: btn.url,
-                label: btn.label
+                href: event.url,
+                label: event.label,
+                class: 'highlight__main__button'
             } %}
         </div>
-        <div class="highlight__content__date">
-            <span>{{ event.start|date('M') }}</span>
-            <span>{{ event.start|date('d') }}</span>
+        <div class="highlight__date">
+            <span class="month">{{ event.start|date('M') }}</span>
+            <span class="day">{{ event.start|date('d') }}</span>
         </div>
     </div>
 </div>

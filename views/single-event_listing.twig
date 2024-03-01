@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block main %}
+	<article class="container post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+
+		<div class="single-atelier__hero">
+			<div class="single-atelier__hero__cover">
+				<img src="{{ post.thumbnail.src }}">
+			</div>
+		</div>
+
+		<div class="single-atelier__content typeset">
+			<h1>{{ post.title }}</h1>
+
+			{{ content }}
+		</div>
+
+		{% if typeEvent %}
+			<ul class="single-event__tags">
+					<li>
+						{% if typeEvent == "atelier" %}
+							<a href="{{ ateliersURL }}">
+						{% elseif typeEvent == "spectacle" %}
+							<a href="{{ spectaclesURL }}">
+						{% endif %}
+							{{ typeEvent }}
+						</a></li>
+					<li><a href="{{ typeURL }}">{{ typeName }}</a></li>
+			</ul>
+		{% endif %}
+
+	</article>
+{% endblock %}

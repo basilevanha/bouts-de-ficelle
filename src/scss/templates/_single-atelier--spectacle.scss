@@ -1,0 +1,55 @@
+.single-atelier,
+.single-spectacle,
+.single-event {
+    &__hero {
+        width: 100%;
+
+        &__cover {
+            position: relative;
+            width: 100%;
+            padding-bottom: 30%;
+            
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__breadcrumb {
+            @include font(bold);
+            font-size: rem(16px);
+        }
+    }
+
+    &__content {
+        padding-top: $spacing-md;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-small;
+        padding: $spacing-md 0;
+        
+        li {
+            a {
+                padding: $spacing-xsmall $spacing-small;
+                border-radius: $spacing-md;
+                border: 2px solid color(primary);
+                background-color: color(primary);
+                color: color(light);
+                @include font('bold');
+
+                &:hover {
+                    background-color: color(link-hover);
+                }
+            }
+        }
+
+    }
+
+}
