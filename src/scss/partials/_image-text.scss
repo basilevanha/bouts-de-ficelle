@@ -23,6 +23,10 @@
         display: flex;
         flex: 1 0;
         justify-content: center;
+
+        .img-lazy {
+            width: 100%;
+        }
     }
 
     &.image-text--revert {

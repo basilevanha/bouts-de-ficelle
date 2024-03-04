@@ -19,7 +19,10 @@
     class="{{ classes }} ratio-img--{{ ratioImg ? ratioImg : 100 }}"
 >
     <div class="image-text__img">
-        <img src="{{ img.url }}" alt="{{ img.alt }}">
+        {% include 'atoms/image.twig' with {img: {
+            src: img.url,
+            alt: img.alt
+        }} %}
     </div>
 
     <div class="image-text__text">

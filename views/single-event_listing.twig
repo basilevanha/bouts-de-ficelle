@@ -4,9 +4,11 @@
 	<article class="container post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 
 		<div class="single-atelier__hero">
-			<div class="single-atelier__hero__cover">
-				<img src="{{ post.thumbnail.src }}">
-			</div>
+			{% include 'atoms/image.twig' with {img: {
+				src: post.thumbnail,
+				alt: post.title,
+				ratio: 'banner'
+			}} %}
 		</div>
 
 		<div class="single-atelier__content typeset">

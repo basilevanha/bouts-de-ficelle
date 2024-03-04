@@ -4,9 +4,11 @@
 	<article class="container post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 
 		<div class="single-spectacle__hero">
-			<div class="single-spectacle__hero__cover">
-				<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			</div>
+			{% include 'atoms/image.twig' with {img: {
+				src: post.thumbnail,
+				alt: post.title,
+				ratio: 'banner'
+			}} %}
 
 			<div class="single-spectacle__hero__breadcrumb">
 				<a class="a" href="{{ site.link }}">Accueil</a>

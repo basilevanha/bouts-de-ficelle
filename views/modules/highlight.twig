@@ -14,7 +14,12 @@
 <div class="highlight">
     <div class="highlight__picture">
         <div class="highlight__picture__wrapper">
-            <img src="{{ event.image }}" alt="{{ event.title }}">
+            {% include 'atoms/image.twig' with {img: {
+				src: event.image,
+				alt: event.title,
+				ratio: 'widescreen',
+                class: 'highlight__picture'
+			}} %}
         </div>
     </div>
     <div class="highlight__wrapper">

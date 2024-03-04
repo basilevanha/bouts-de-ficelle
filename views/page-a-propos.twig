@@ -45,7 +45,11 @@
 		
 		{% include 'partials/image-text.twig' with heroDatas %}
 		
-		<img src="{{ groupe.url }}" alt="{{ groupe.alt }}">
+		{% include 'atoms/image.twig' with {img: {
+			src: groupe.url,
+			alt: groupe.alt,
+			ratio: 'banner'
+		}} %}
 
 		<div class="paragraph--our-members">
 			{% include 'modules/paragraph.twig' with equipeDatas %}

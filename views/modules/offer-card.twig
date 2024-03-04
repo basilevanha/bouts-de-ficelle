@@ -1,9 +1,13 @@
 {% import 'atoms/icon.twig' as icon %}
 
 <div class="offer-card">
-    <div class="offer-card__img">
-        <img src="{{ img.url }}" alt="{{ img.alt }}">
-    </div>
+    {% include 'atoms/image.twig' with {img: {
+        src: img.url,
+        alt: img.alt,
+        ratio: 'widescreen',
+        class: 'offer-card__img'
+    }} %}
+    
     <div class="offer-card__infos">
         <p class="offer-card__infos__title h3">{{ title }}</p>
         <p class="offer-card__infos__price h1">

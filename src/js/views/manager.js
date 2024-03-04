@@ -6,13 +6,18 @@
 import Header   from './partials/common/header';
 import Footer   from './partials/common/footer';
 import Evenements   from './templates/evenements';
+import Image   from './atoms/image';
 
 const COMPONENTS = [
 
   {
     el: '[template="evenements"]',
     id: Evenements
-  }
+  },
+  {
+    el: '[js-img-lazy]',
+    id: Image
+  },
 ];
 
 // Manager Class
