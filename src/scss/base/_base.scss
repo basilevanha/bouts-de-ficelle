@@ -72,7 +72,7 @@ body {
   }
   
   @include mq($until: 'm') {
-    padding: 0px 20px;
+    padding: 0px $spacing-small;
   }
 }
 

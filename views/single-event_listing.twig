@@ -6,6 +6,11 @@
 {% block main %}
 	<article class="container post-type-{{ post.post_type }} single-event" id="post-{{ post.ID }}">
 		<div class="single-event__container">
+			<div class="single-atelier__hero__breadcrumb">
+				<a class="a" href="{{ site.link }}/calendrier">Calendrier</a>
+				>
+				{{ post.name }}
+			</div>
 			<div class="single-event__hero">
 				{% include 'atoms/image.twig' with {img: {
 					src: post.thumbnail,
@@ -15,44 +20,62 @@
 			</div>
 
 			<div class="single-event__content typeset">
-				<h1>{{ post.title }}</h1>
 
 				<div class="single-event__content__infos">
+					<h1>{{ post.title }}</h1>
 					<p class="single-event__content__infos__start">
 						{{ icon.sprite('time', 25, 25, 'Début', site.theme.link ) }}
-						Début: {{ infos.start|date("d F \\à\\ H:i") }}
+						<strong>Début:</strong> <span class="value">{{ infos.start|date("d F \\à\\ H:i") }}</span>
 					</p>
 					<p class="single-event__content__infos__end">
 						{{ icon.sprite('time', 25, 25, 'Fin', site.theme.link ) }}
-						Fin: {{ infos.end|date("d F \\à\\ H:i") }}
+						<strong>Fin:</strong> <span class="value">{{ infos.end|date("d F \\à\\ H:i") }}</span>
 					</p>
 					<p class="single-event__content__infos__location">
                 		{{ icon.sprite('localisation', 25, 25, 'icone de localisation', site.theme.link ) }}
+						<strong>Lieu:</strong>
+						<span class="value">
 						<a
 							class="single-event__content__infos a"
 							href="https://www.google.com/maps/search/?api=1&query={{ infos.location|url_encode }}"
 							target="_blank"	
 						> {{ infos.location }}</a>
+						</span>
 					</p>
+
+					{% if reservation %}
+						{% include 'components/button.twig' with {
+							label: "Réserver",
+						} %}
+
+						{% if pay %}
+							{% include 'components/button.twig' with {
+							label: 'Payer (' ~ price ~ '€)',
+						} %}
+						{% endif %}
+					{% endif %}
 				</div>
 
 				{{ content }}
 
+				{% if typeEvent %}
+					<h5>Tags : </h5>
+					<ul class="single-event__tags">
+						<li>
+							{% if typeEvent == "atelier" %}
+								<a href="{{ ateliersURL }}">
+							{% elseif typeEvent == "spectacle" %}
+								<a href="{{ spectaclesURL }}">
+							{% endif %}
+								{{ typeEvent }}
+							</a></li>
+						<li><a href="{{ typeURL }}">{{ typeName }}</a></li>
+					</ul>
+			{% endif %}
+
 			</div>
 
-			{% if typeEvent %}
-				<ul class="single-event__tags">
-					<li>
-						{% if typeEvent == "atelier" %}
-							<a href="{{ ateliersURL }}">
-						{% elseif typeEvent == "spectacle" %}
-							<a href="{{ spectaclesURL }}">
-						{% endif %}
-							{{ typeEvent }}
-						</a></li>
-					<li><a href="{{ typeURL }}">{{ typeName }}</a></li>
-				</ul>
-			{% endif %}
+			
 		</div>
 	</article>
 {% endblock %}
