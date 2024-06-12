@@ -129,7 +129,8 @@
             height: 44px;
             
             &__input {
-                border-radius:$radius-small;
+                display: flex;
+                border-radius:$radius-small !important;
                 overflow: hidden;
                 padding-left: $spacing-small;
                 width: 100%;

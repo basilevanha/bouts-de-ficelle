@@ -1,8 +1,9 @@
 .single-atelier,
-.single-spectacle,
-.single-event {
+.single-spectacle {
     &__hero {
         width: 100%;
+        max-width: $typeset-width;
+        margin: 0 auto;
 
         &__breadcrumb {
             @include font(bold);
@@ -12,29 +13,12 @@
 
     &__content {
         padding-top: $spacing-md;
-    }
 
-    &__tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $spacing-small;
-        padding: $spacing-md 0;
-        
-        li {
-            a {
-                padding: $spacing-xsmall $spacing-small;
-                border-radius: $spacing-md;
-                border: 2px solid color(primary);
-                background-color: color(primary);
-                color: color(light);
-                @include font('bold');
-
-                &:hover {
-                    background-color: color(link-hover);
-                }
-            }
+        .editions {
+            margin-top: $spacing-xsmall;
+            padding: $spacing-small;
+            border: 3px solid color(dark);
         }
-
     }
 
 }

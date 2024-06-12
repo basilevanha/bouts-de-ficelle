@@ -16,11 +16,11 @@ Timber::$dirname = [ 'templates', 'views' ];
 
 function global_variables() {
     global $globals;
-	$globals['homepage_ID'] = 9;          // DEV = 9  | STAGING = 10
-    $globals['page_ateliers_ID'] = 20;    // DEV = 20 | STAGING = 194
-    $globals['page_spectacles_ID'] = 22;    // DEV = 22 | STAGING = 200
-    $globals['menus_header_ID'] = 2;      // DEV = 2  | STAGING = 35
-	$globals['menus_footer_ID'] = 6;      // DEV = 6  | STAGING = 36
+	$globals['homepage_ID'] = 10;          // DEV = 9  | STAGING = 10
+    $globals['page_ateliers_ID'] = 194;    // DEV = 20 | STAGING = 194
+    $globals['page_spectacles_ID'] = 200;    // DEV = 22 | STAGING = 200
+    $globals['menus_header_ID'] = 35;      // DEV = 2  | STAGING = 35
+	$globals['menus_footer_ID'] = 36;      // DEV = 6  | STAGING = 36
 }
 add_action( 'after_setup_theme', 'global_variables' );
 

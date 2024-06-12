@@ -50,16 +50,57 @@ body {
   }
 }
 
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 40px;
+  border: 0;
+  background-color: color(input);
+  padding: 0 $burger-width 0 $container-padding;
+  appearance: none;
+}
+
+input[type="text"],
+input[type="email"] {
+  height: 44px;
+  overflow: hidden;
+}
+
+textarea {
+  padding: $spacing-small;
+  border-radius: $radius-small;
+}
+
+select {
+  position: relative;
+
+  &::before{
+    content: '';
+    z-index: 100;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    // position: absolute;
+    // top: 50%;
+    // left: $spacing-small;
+    // transform: translateY(-50%);
+  }
+}
 
 // Typeset
 // -----------------------------------------------------------------------------
 .typeset {
-  max-width: 900px;
+  max-width: $typeset-width;
   margin: 0 auto;
 
   h1 {
     @include font(extra-bold);
     font-size: rem(40px);
+    line-height: 1.2;
   
     @include mq($from: 'desktop') {
       font-size: rem(45px);

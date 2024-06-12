@@ -1,0 +1,67 @@
+.single-event {
+    
+    &__container {
+        max-width: $typeset-width;
+        border: 3px solid color(dark);
+        margin: $spacing-small auto $spacing-lg;
+    }
+
+    &__hero {
+        width: 100%;
+    }
+
+    
+    &__content {
+        padding: $spacing-small;
+        
+        &__infos {
+            margin: $spacing-small 0;
+            padding: $spacing-xsmall $spacing-small;
+            background-color: color(bg-dark);
+
+            @include mq($from:'desktop') {
+                padding: $spacing-small;
+            }
+
+            &__start,
+            &__end,
+            &__location {
+                display: flex;
+                gap: $spacing-xsmall;
+                margin: 0 !important;
+
+                .svg {
+                    margin-top: 8px;
+                }
+
+                a {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-small;
+        padding: $spacing-small $spacing-small $spacing-md;
+        
+        li {
+            a {
+                padding: $spacing-xsmall $spacing-small;
+                border-radius: $spacing-md;
+                border: 2px solid color(primary);
+                background-color: color(primary);
+                color: color(light);
+                @include font('bold');
+
+                &:hover {
+                    background-color: color(link-hover);
+                }
+            }
+        }
+
+    }
+}

@@ -1,24 +1,47 @@
+{# Macros #}
+{% import 'atoms/icon.twig' as icon %}
+
 {% extends "base.twig" %}
 
 {% block main %}
-	<article class="container post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+	<article class="container post-type-{{ post.post_type }} single-event" id="post-{{ post.ID }}">
+		<div class="single-event__container">
+			<div class="single-event__hero">
+				{% include 'atoms/image.twig' with {img: {
+					src: post.thumbnail,
+					alt: post.title,
+					ratio: 'widescreen'
+				}} %}
+			</div>
 
-		<div class="single-atelier__hero">
-			{% include 'atoms/image.twig' with {img: {
-				src: post.thumbnail,
-				alt: post.title,
-				ratio: 'banner'
-			}} %}
-		</div>
+			<div class="single-event__content typeset">
+				<h1>{{ post.title }}</h1>
 
-		<div class="single-atelier__content typeset">
-			<h1>{{ post.title }}</h1>
+				<div class="single-event__content__infos">
+					<p class="single-event__content__infos__start">
+						{{ icon.sprite('time', 25, 25, 'Début', site.theme.link ) }}
+						Début: {{ infos.start|date("d F \\à\\ H:i") }}
+					</p>
+					<p class="single-event__content__infos__end">
+						{{ icon.sprite('time', 25, 25, 'Fin', site.theme.link ) }}
+						Fin: {{ infos.end|date("d F \\à\\ H:i") }}
+					</p>
+					<p class="single-event__content__infos__location">
+                		{{ icon.sprite('localisation', 25, 25, 'icone de localisation', site.theme.link ) }}
+						<a
+							class="single-event__content__infos a"
+							href="https://www.google.com/maps/search/?api=1&query={{ infos.location|url_encode }}"
+							target="_blank"	
+						> {{ infos.location }}</a>
+					</p>
+				</div>
 
-			{{ content }}
-		</div>
+				{{ content }}
 
-		{% if typeEvent %}
-			<ul class="single-event__tags">
+			</div>
+
+			{% if typeEvent %}
+				<ul class="single-event__tags">
 					<li>
 						{% if typeEvent == "atelier" %}
 							<a href="{{ ateliersURL }}">
@@ -28,8 +51,8 @@
 							{{ typeEvent }}
 						</a></li>
 					<li><a href="{{ typeURL }}">{{ typeName }}</a></li>
-			</ul>
-		{% endif %}
-
+				</ul>
+			{% endif %}
+		</div>
 	</article>
 {% endblock %}
