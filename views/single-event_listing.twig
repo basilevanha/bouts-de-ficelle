@@ -44,15 +44,13 @@
 					</p>
 
 					{% if reservation %}
-						{% include 'components/button.twig' with {
+						{% include 'modules/modal.twig' with {
 							label: "Réserver",
+							id: "Réservation",
+							title: "Réserver sa place",
+							description: "Formulaire de réservation",
+							content: registrationForm|raw
 						} %}
-
-						{% if pay %}
-							{% include 'components/button.twig' with {
-							label: 'Payer (' ~ price ~ '€)',
-						} %}
-						{% endif %}
 					{% endif %}
 				</div>
 

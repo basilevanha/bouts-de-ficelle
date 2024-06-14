@@ -19,6 +19,7 @@
 	$context['reservation']		= get_field('event-reservation', $context['post']->ID);
 	$context['pay']		        = get_field('event-paid', $context['post']->ID);
 	$context['price']		    = get_field('event-price', $context['post']->ID);
+	$context['registrationForm']= get_field('event-shortcode', $context['post']->ID);
     // Get edition post ID
         $edition_url = get_field('type_name', $context['post']->ID);
         $complete_edition_url = home_url($edition_url);
