@@ -14,8 +14,6 @@ s
     }
         
     init() {
-        console.log(this.$modal);
-
         this._openModal = this.openModal.bind(this);
         this.$openButton.addEventListener('click', this._openModal);
 

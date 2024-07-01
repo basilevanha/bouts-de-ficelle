@@ -9,7 +9,6 @@ class Image {
     
     init() {
        this.$imgTag.addEventListener("load", (event) => {
-            console.log('loaded');
             this.$el.classList.remove('js-loading')
        });
     }
