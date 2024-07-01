@@ -8,6 +8,7 @@ import Footer   from './partials/common/footer';
 import Evenements   from './templates/evenements';
 import Image   from './atoms/image';
 import Modal from './modules/modal';
+import CardsList from './partials/CardsList';
 
 const COMPONENTS = [
 
@@ -22,6 +23,10 @@ const COMPONENTS = [
   {
     el: '[js-modal]',
     id: Modal
+  },
+  {
+    el: '[js-cards-list]',
+    id: CardsList
   },
 ];
 

@@ -1,20 +1,42 @@
-<div class="cards-list">
-    {% for card in cards %}
-        {% set datas = {
-            img: card.thumbnail,
-            title: card.title,
-            description: card.description,
-            btn: {
-                label: card.label,
-                href: card.guid
-            }
-        } %}
-        
-        <div class="cards-list__card-wrapper">
-            <div class="cards-list__card-wrapper__container">
-                {% include 'modules/card.twig' with datas %}
-            </div>
-        </div>
+{# Variables disponibles :
+    {{ dump(cards) }}
+    filters: ['string']
+ #}
 
-    {% endfor %}
+<div class="cards-list" js-cards-list>
+
+    {% if filters %}
+        <div class="cards-list__filters" js-filters>
+            <button class="button button--neg button--selected" data-filter="all" data-selected="true">Tout</button>
+
+            {% for filter in filters %}
+                <button class="button button--neg" data-filter="{{ filter.value }}">{{ filter.label }}</button>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="cards-list__items" js-items>
+
+        {# {{dump(filters)}} #}
+
+        {% for card in cards %}
+            {% set datas = {
+                img: card.thumbnail,
+                title: card.title,
+                description: card.description,
+                btn: {
+                    label: card.label,
+                    href: card.guid
+                },
+                showtype: card.showtype
+            } %}
+            
+            <div class="cards-list__card-wrapper" js-item data-type="{{datas.showtype.value}}" data-visible="true">
+                <div class="cards-list__card-wrapper__container">
+                    {% include 'modules/card.twig' with datas %}
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
 </div>

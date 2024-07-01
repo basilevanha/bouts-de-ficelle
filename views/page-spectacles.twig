@@ -24,7 +24,6 @@
 
 
 {% block main %}
-
 	<div class="container post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
 		{% if (global.highlight.toggle == true) %}
@@ -37,7 +36,7 @@
 
 		<div class="section--spectacles">
 			<h2 class="h2">{{ liste.titre }}</h2>
-			{% include 'partials/cards-list.twig' with {cards: spectacles} %}
+			{% include 'partials/cards-list.twig' with {cards: spectacles, filters: filters} %}
 		</div>
 	</div>
 	<!-- /content-wrapper -->
