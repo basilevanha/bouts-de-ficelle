@@ -10,7 +10,7 @@ global $globals;
 $ateliers_ID = $globals['page_ateliers_ID'];
 
 $array_fill = array();
-$items = get_field('ateliers-liste', $ateliers_ID)['items'];
+$items = get_field('accueil-ateliers', $context['post']->ID)['items'];
 
 if ($items) {
     for ($i = 0; $i < count($items) ; $i++) {
