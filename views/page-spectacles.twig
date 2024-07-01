@@ -36,7 +36,7 @@
 
 		<div class="section--spectacles">
 			<h2 class="h2">{{ liste.titre }}</h2>
-			{% include 'partials/cards-list.twig' with {cards: spectacles, filters: filters} %}
+			{% include 'partials/cards-list.twig' with {cards: spectacles, filters: filters, layout: 'grid'} %}
 		</div>
 	</div>
 	<!-- /content-wrapper -->
