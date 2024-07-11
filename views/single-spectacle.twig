@@ -5,7 +5,7 @@
 
 		<div class="single-spectacle__hero">
 			{% include 'atoms/image.twig' with {img: {
-				src: post.thumbnail,
+				src: post.cover.url,
 				alt: post.title,
 				ratio: 'banner'
 			}} %}

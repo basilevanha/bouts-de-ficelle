@@ -76,6 +76,7 @@ $default-colors: (
 
   text:                 $color-dark-opacity,
   input:                $color-dark-lightened,
+  disabled:             darken($color-dark-lightened, 7%),
 
   search-bg:            $color-white,
 

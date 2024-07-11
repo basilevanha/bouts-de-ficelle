@@ -17,6 +17,10 @@
 			{
 				label: hero.btn.label,
 				url: hero.btn.url
+			},
+			{
+				label: hero.btn2.label,
+				url: hero.btn2.url
 			}
 		]
 	},
@@ -39,7 +43,15 @@
 		title: gouts.titre,
 		text: gouts.texte,
 	},
-	img: gouts.img,
+	img: gouts.img
+ } %}
+
+  {% set stagesDatas = {
+	paragraphDatas: {
+		title: stages.titre,
+		text: stages.texte,
+	},
+	img: stages.img,
 	revert: true
  } %}
 
@@ -71,13 +83,23 @@
 			{% include 'partials/offers-list.twig' with { offers: offres.cartes } %}
 		</div>
 
-		<div class="section--gouts">
-			{% include 'partials/image-text.twig' with goutsDatas %}
-		</div>
+		{% if gouts.titre %}
+			<div class="section--gouts">
+				{% include 'partials/image-text.twig' with goutsDatas %}
+			</div>
+		{% endif %}
 
-		<div class="section--spectacle">
-			{% include 'partials/image-text.twig' with spectacleDatas %}
-		</div>
+		{% if stages.titre %}
+			<div class="section--stages">
+				{% include 'partials/image-text.twig' with stagesDatas %}
+			</div>
+		{% endif %}
+
+		{% if spectacle.titre %}
+			<div class="section--spectacle">
+				{% include 'partials/image-text.twig' with spectacleDatas %}
+			</div>
+		{% endif %}
 	</div>
 	<!-- /content-wrapper -->
 {% endblock %}

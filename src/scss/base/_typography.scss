@@ -53,6 +53,7 @@ body {
 input[type="text"],
 input[type="email"],
 input[type="number"],
+input[type="tel"],
 textarea,
 select {
   width: 100%;
@@ -65,9 +66,22 @@ select {
 }
 
 input[type="text"],
+input[type="tel"],
 input[type="email"] {
   height: 44px;
   overflow: hidden;
+}
+
+.disabled {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  select {
+    background-color: color(disabled);
+    cursor: not-allowed;
+    font-style: italic;
+  }
 }
 
 textarea {
