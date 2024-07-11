@@ -9,9 +9,17 @@
 
     $context                   	= Timber::context();
     $context['post']           	= Timber::get_post();
+
+    // GEstion de la timezone : convertir en objet date spécifiquement, en incluant la timezone de wordpress
+    $timezone = get_option('timezone_string'); // Récupère la timezone définie dans WordPress
+    $start_date = get_post_meta($context['post']->ID, '_event_start_date', true);
+    $end_date = get_post_meta($context['post']->ID, '_event_end_date', true);
+    $start_datetime = new DateTime($start_date, new DateTimeZone($timezone));
+    $end_datetime = new DateTime($end_date, new DateTimeZone($timezone));
+
     $context['infos']           = [
-        'start'     => get_post_meta($context['post']->ID, '_event_start_date', true),
-        'end'       => get_post_meta($context['post']->ID, '_event_end_date', true),
+        'start'     => $start_datetime,
+        'end'       => $end_datetime,
         'location'  => get_post_meta($context['post']->ID, '_event_location', true),
     ];
 	$context['content']			= get_field('acf-content', $context['post']->ID);
