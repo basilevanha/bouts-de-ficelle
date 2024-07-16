@@ -32,6 +32,7 @@
   {% set archivesDatas = {
 	title: fichiers.titre,
 	text: fichiers.texte,
+	btn: fichiers.btn
  } %}
 
 
@@ -59,7 +60,11 @@
 		
 		<div class="paragraph--archives">
 			{% include 'modules/paragraph.twig' with archivesDatas %}
-			<p>{{ fichiers.embed }}</p>
+
+			{% include 'components/button.twig' with {
+				label: archivesDatas.btn.label,
+				href: archivesDatas.btn.url,
+			} %}
 		</div>
 
 	</div>
