@@ -21,6 +21,13 @@
             position: relative;
             padding: $spacing-xl 0;
 
+            .paragraph {
+                .typeset {
+                    margin: unset;
+                    margin-bottom: $spacing-small;
+                }
+            }
+
             &::before {
                 content: '';
                 z-index: -1;
