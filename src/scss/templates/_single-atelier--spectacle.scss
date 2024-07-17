@@ -14,11 +14,18 @@
     &__content {
         padding-top: $spacing-md;
 
-        .editions {
+        h4 {
             margin-top: $spacing-xsmall;
+        }
+
+        .editions {
+            margin: $spacing-small 0;
             padding: $spacing-small;
             border: 3px solid color(dark);
+
+            &__list {
+                margin: 0 ;
+            }
         }
     }
-
 }

@@ -26,21 +26,7 @@
 			{{ post.content }}
 			
 			{% if evenements is not empty %}
-				<div class="editions">
-				<h3 class="h3">Toutes les éditions :</h3>
-					<ul class="editions__list">
-						{% for evenement in evenements %}
-							<li class="editions__item">
-								<span class="editions__item__date">
-									{{ evenement.date|date("d M y") }} : 
-								</span>
-								<a href="{{ evenement.url }}" class="a edition__item__link">
-									{{ evenement.title }}
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
-				</div>
+				{% include 'partials/all-editions.twig' with {events: evenements} %}
 			{% endif %}
 		</div>
 

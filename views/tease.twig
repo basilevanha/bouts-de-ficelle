@@ -9,7 +9,9 @@
 		</div>
 		<div class="tease__content">
 			<h2 class="h2">{{ post.title }}</h2>
-			{# <p>{{ post.excerpt }}</p> #}
+			{# <p>{{ dump(post) }}</p> #}
+			{# <p>{{ dump(post.meta('description')) }}</p>
+			<p>{{ post.description }}</p> #}
 		</div>
 	{% endblock %}
 	<a class="tease__link" href="{{post.link}}"></a>

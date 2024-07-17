@@ -11,18 +11,18 @@
                 @include mq($from: 'l') {
                     position: relative;
         
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: $spacing-md;
-                        right: $spacing-small;
-                        bottom: $spacing-md;
-                        left: $spacing-small;
-                        z-index: -1;
-                        background-color: color(bg-primary);
-                        overflow: hidden;
-                        border-radius: $radius-big;
-                    }
+                    // &::before {
+                    //     content: '';
+                    //     position: absolute;
+                    //     top: $spacing-md;
+                    //     right: $spacing-small;
+                    //     bottom: $spacing-md;
+                    //     left: $spacing-small;
+                    //     z-index: -1;
+                    //     background-color: color(bg-primary);
+                    //     overflow: hidden;
+                    //     border-radius: $radius-big;
+                    // }
                 }
     
                 .paragraph {

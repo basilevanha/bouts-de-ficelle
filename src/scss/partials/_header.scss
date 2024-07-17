@@ -27,7 +27,7 @@
 
     &__logo {
         display: flex;
-        height: 30px;
+        height: 25px;
         transition: transform .3s ease-in-out, opacity .3s ease-in-out;
         
         @include mq($until: desktop) {
@@ -96,7 +96,6 @@
                 display: flex;
                 align-items: center;
                 height: 100%;
-                font-size: rem(16px);
             }
 
             &__item {
@@ -125,6 +124,11 @@
                 @include mq($from: desktop) {
                     flex-shrink: 0;
                     margin: 0 2px;
+                    font-size: rem(16px);
+                }
+
+                @include mq($from: wide) {
+                    font-size: rem(20px);
                 }
 
 

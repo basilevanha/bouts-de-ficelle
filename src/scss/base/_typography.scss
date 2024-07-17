@@ -24,20 +24,20 @@ body {
 
 .h1 {
   @include font(extra-bold);
-  font-size: rem(55px);
+  font-size: rem(40px);
   line-height: normal
 }
 
 .h2 {
   @include font(bold);
   line-height: normal;
-  font-size: rem(40px);
+  font-size: rem(35px);
 }
 
 .h3 {
   @include font(bold);
   line-height: normal;
-  font-size: rem(35px);
+  font-size: rem(30px);
 }
 
 .a {
@@ -114,11 +114,11 @@ select {
 
   h1 {
     @include font(extra-bold);
-    font-size: rem(40px);
+    font-size: rem(38px);
     line-height: 1.2;
   
     @include mq($from: 'desktop') {
-      font-size: rem(45px);
+      font-size: rem(40px);
     }
   }
 

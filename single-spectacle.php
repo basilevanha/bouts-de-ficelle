@@ -30,6 +30,7 @@
                     'title' => get_the_title(),
                     'date' => get_field('_event_start_date'),
                     'url' => get_the_guid(),
+                    'end' => get_field('_event_end_date'),
                     // Ajoutez d'autres champs que vous souhaitez récupérer
                 );
             }

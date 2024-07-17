@@ -29,6 +29,7 @@
                 $evenements[] = array(
                     'title' => get_the_title(),
                     'date' => get_field('_event_start_date'),
+                    'end' => get_field('_event_end_date'),
                     'url' => get_the_guid(),
                     // Ajoutez d'autres champs que vous souhaitez récupérer
                 );
