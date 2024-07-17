@@ -1,8 +1,10 @@
 {# 
     id: string,
     title: string,
+    label: string,
     description: string,
-    content: string
+    content: string,
+    templatepath: string
  #}
 
  {# Macros #}
@@ -33,7 +35,11 @@
 
         <div class="modal__dialog__content typeset">
             <h2 tabindex="0">{{ title }}</h2>
-                {{ content }}
+                {% if content %}
+                    {{ content }}
+                {% elseif templatepath %}
+                    {% include templatepath %}
+                {% endif %}
         </div>
     </div>
 

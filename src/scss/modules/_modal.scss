@@ -1,4 +1,6 @@
 .modal {
+    color: color(dark);
+
     &__dialog {
         // opacity: 0;
         display: none;
@@ -30,7 +32,7 @@
             justify-content: space-between;
             padding: $spacing-small;
             background-color: $color-dark;
-            z-index: 1;
+            z-index: 2;
 
             p.modal__dialog__header__title {
                 color: $color-light !important;
