@@ -6,28 +6,49 @@
             flex-direction: column;
             gap: $spacing-lg;
     
-    
             .image-text--hero {
+                position: relative;
+                margin: $spacing-small 0;
+                gap: $spacing-xsmall;
+
                 @include mq($from: 'l') {
-                    position: relative;
+                    margin: $spacing-lg 0;
+                    padding: 0 $spacing-md;
         
-                    // &::before {
-                    //     content: '';
-                    //     position: absolute;
-                    //     top: $spacing-md;
-                    //     right: $spacing-small;
-                    //     bottom: $spacing-md;
-                    //     left: $spacing-small;
-                    //     z-index: -1;
-                    //     background-color: color(bg-primary);
-                    //     overflow: hidden;
-                    //     border-radius: $radius-big;
-                    // }
+                    .image-text__text {
+                        padding: $spacing-md $spacing-small;
+                        margin-left: auto;
+                        max-width: 500px;
+
+                        paragraph {
+                            padding: 0;
+                        }
+                    }
+
+                    .image-text__img {
+                        max-width: 700px;
+                    }
                 }
-    
-                .paragraph {
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0 0;
+                    height: 75%;
+                    z-index: -1;
+                    background-image: url('../../assets/img/accueil-hero-shape.svg');
+                    background-size: 100% calc(100% - ($spacing-md * 2));
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    // transform: scale(0,9);
+
+                    @include mq($until: 'm') {
+                        transform: scalex(2);
+                    }
+
                     @include mq($from: 'l') {
-                        padding: $spacing-md;
+                        inset: 0;
+                        height: 100%;
                     }
                 }
             }

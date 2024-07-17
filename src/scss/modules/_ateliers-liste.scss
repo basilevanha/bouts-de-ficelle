@@ -9,10 +9,15 @@
     }
 
     &__item {
-        padding: $spacing-small $spacing-xsmall;
+        padding: $spacing-xsmall 0;
 
         &__text {
-            @include font(bold)
+            @include font(bold);
+            font-size: rem(16px);
+
+            @include mq($from: desktop) {
+                font-size: rem(18px);
+            }
         }
         
         a {
@@ -27,36 +32,11 @@
                 flex-shrink: 0;
             }
 
-            .svg-arrow {
-                transition: margin-left .3s ease-in-out, transform .3s ease-in-out;
-                margin-left: auto;
-            }
-
             &:hover,
             &:focus,
             &:focus-visible {
                 background-color: color(ateliers-hover);
-                .svg-arrow {
-                    transform: scaleX(1.2);
-                }
             }
-        }
-        
-        &:not(:last-child) {
-            position: relative;
-            
-            ::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                transform: translateY(-50%);
-                width: 100%;
-                height: 3px;
-                border-radius: 3px;
-                background-color: color(light);
-            }
-            
         }
     }
 }
