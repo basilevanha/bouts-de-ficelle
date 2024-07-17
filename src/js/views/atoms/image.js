@@ -8,9 +8,14 @@ class Image {
     }
     
     init() {
-       this.$imgTag.addEventListener("load", (event) => {
-            this.$el.classList.remove('js-loading')
-       });
+      // Check if image is already in cache
+      if(this.$imgTag.complete){
+        this.$el.classList.remove('js-loading')
+      } else {
+        this.$imgTag.onload = () => {
+          this.$el.classList.remove('js-loading')
+        }
+      }
     }
 }
 
