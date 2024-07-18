@@ -24,30 +24,6 @@
             }
 
             .section--prix {
-
-                .offers-list {
-                    &__card-wrapper {
-                        &:nth-child(2) {
-                            .offer-card::after {
-                                background-color: color(secondary);
-                            }
-
-                            .bubble {
-                                background-color: color(bg-secondary);
-                            }
-                        }
-
-                        &:nth-child(3) {
-                            .offer-card::after {
-                                background-color: color(tertiary);
-                            }
-
-                            .bubble {
-                                background-color: color(bg-tertiary);
-                            }
-                        }
-                    }
-                }
             }
 
             .section--gouts {

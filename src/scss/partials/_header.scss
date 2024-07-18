@@ -152,6 +152,10 @@
                             background-color: color(nav-hover);
                         }
 
+                        &:active {
+                            background-color: color(nav-pressed);
+                        }
+
                         &.active {
                             color: color(light);
                             background-color: color(dark);

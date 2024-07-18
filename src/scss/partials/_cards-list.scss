@@ -11,9 +11,10 @@
             border-radius: $spacing-xl;
 
             &[data-selected="true"] {
-                background-color: $color-secondary;
-                border-color: $color-secondary;
-                color: $color-light;
+                background-color: color(button-dark-bg) !important;
+                border-color: color(button-dark-bg) !important;
+                color: color(light) !important;
+                pointer-events: none;
             }
         }
     }

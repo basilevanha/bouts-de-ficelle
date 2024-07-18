@@ -8,17 +8,15 @@
 
     {% if filters %}
         <div class="cards-list__filters" js-filters>
-            <button class="button button--neg button--selected" data-filter="all" data-selected="true">Tout</button>
+            <button class="button button--ghost button--dark button--selected" data-filter="all" data-selected="true">Tout</button>
 
             {% for filter in filters %}
-                <button class="button button--neg" data-filter="{{ filter.value }}">{{ filter.label }}</button>
+                <button class="button button--ghost button--dark" data-filter="{{ filter.value }}">{{ filter.label }}</button>
             {% endfor %}
         </div>
     {% endif %}
 
     <div class="cards-list__items {{ layout ? ('layout--' ~ layout) : 'layout--shift' }}" js-items>
-
-        {# {{dump(filters)}} #}
 
         {% for card in cards %}
             {% set datas = {

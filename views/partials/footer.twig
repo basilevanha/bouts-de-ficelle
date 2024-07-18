@@ -85,14 +85,6 @@
                         </button>
                     </form> #}
 
-                     {% include 'modules/modal.twig' with {
-                        id: 'mailchimpmodal',
-                        title: global.footer.socials.titre,
-                        label: "S'abonner à la newsletter",
-                        description: '',
-                        templatepath: 'modules/mailchimp-form.twig'
-                    } %}
-
                     {% for social in global.socials %}
                         <a
                             href="{{ social.url}}"
@@ -104,6 +96,14 @@
                             {{ icon.sprite(social.name, 30, 30, 'Icone de youtube', site.theme.link) }}
                         </a>
                     {% endfor %}
+
+                     {% include 'modules/modal.twig' with {
+                        id: 'mailchimpmodal',
+                        title: global.footer.socials.titre,
+                        label: "S'abonner à la newsletter",
+                        description: '',
+                        templatepath: 'modules/mailchimp-form.twig'
+                    } %}
                 </div>
             </div>
         </div>

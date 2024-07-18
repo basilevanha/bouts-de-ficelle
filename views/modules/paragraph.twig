@@ -3,6 +3,7 @@
     {{ title }}
     {{ text }}
     {{ btns }}
+    {{ btnColor }} = 'primary' | 'secondary' | 'tertiary'
  #}
 
 <div class="paragraph">
@@ -25,8 +26,8 @@
                 {% include 'components/button.twig' with {
                     label: btn.label,
                     href: btn.url,
-                    isNeg: loop.index > 1,
-                    class: btn.class
+                    style: loop.index > 1 ? 'neg' : 'default',
+                    class: 'button--' ~ btnColor
                 } %}
             {% endfor %}
         </div>

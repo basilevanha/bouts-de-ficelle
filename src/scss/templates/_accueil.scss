@@ -13,7 +13,7 @@
 
                 @include mq($from: 'l') {
                     margin: $spacing-lg 0;
-                    padding: 0 $spacing-md;
+                    padding: $spacing-small $spacing-md;
         
                     .image-text__text {
                         padding: $spacing-md $spacing-small;
@@ -26,7 +26,7 @@
                     }
 
                     .image-text__img {
-                        max-width: 700px;
+                        transform: scale(1.15);
                     }
                 }
 
@@ -37,19 +37,25 @@
                     height: 75%;
                     z-index: -1;
                     background-image: url('../../assets/img/accueil-hero-shape.svg');
-                    background-size: 100% calc(100% - ($spacing-md * 2));
+                    background-size: 100% 100%;
                     background-repeat: no-repeat;
                     background-position: center;
                     // transform: scale(0,9);
 
                     @include mq($until: 'm') {
-                        transform: scalex(2);
+                        width: calc(100vw - $spacing-small);
+                        margin-left: - calc($spacing-small / 2);
+                        top: $spacing-md;
                     }
 
                     @include mq($from: 'l') {
                         inset: 0;
                         height: 100%;
                     }
+                }
+
+                .button--neg {
+                    background-color: $color-white;
                 }
             }
     
@@ -85,7 +91,7 @@
                     top: 0;
                     left: 50%;
                     transform: translateX(-50%);
-                    background-color: color(bg-dark);
+                    background-color: color(bg-secondary);
                 }
             }
         }
@@ -94,7 +100,7 @@
     .site-footer {
         &__wrapper {
             &::before {
-                background-color: color(bg-dark);
+                background-color: color(bg-secondary);
             }
         }
     }

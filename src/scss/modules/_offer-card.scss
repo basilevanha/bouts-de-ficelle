@@ -17,7 +17,6 @@
         height: 100%;
         top: $spacing-small;
         left: $spacing-small;
-        background-color: color(primary);
         border-radius: $radius-small;
     }
     
@@ -72,7 +71,6 @@
             gap: $spacing-small;
             margin-bottom: $spacing-xsmall;
             @include font(bold);
-            background-color: color(bg-primary);
             border-radius: $radius-small;
             padding: $spacing-xsmall;
 
@@ -101,5 +99,36 @@
                 max-width: 100%;
             }
         }
-    }    
+    }
+
+    &.color--primary {
+
+        &::after {
+            background-color: color(button-neg-bg);
+        }
+
+        .bubble {
+            background-color: color(bg-primary);
+        }
+    }
+
+    &.color--secondary {
+        &::after {
+            background-color: color(button-neg-secondary-bg);
+        }
+        
+        .bubble {
+            background-color: color(bg-secondary);
+        }
+    }
+
+    &.color--tertiary {
+        &::after {
+            background-color: color(button-neg-tertiary-bg);
+        }
+        
+        .bubble {
+            background-color: color(bg-tertiary);
+        }
+    }
 }

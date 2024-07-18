@@ -1,6 +1,6 @@
 {% import 'atoms/icon.twig' as icon %}
 
-<div class="offer-card">
+<div class="offer-card color--{{ color }}">
     {% include 'atoms/image.twig' with {img: {
         src: img.url,
         alt: img.alt,
@@ -35,7 +35,7 @@
             </p>
         {% endif %}
         <div class="offer-card__infos__btn">
-	    	{% include 'components/button.twig' with {href: btn.url, label: btn.label} %}
+	    	{% include 'components/button.twig' with {href: btn.url, label: btn.label, color: 'dark'} %}
         </div>
     </div>
 </div>

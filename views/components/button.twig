@@ -1,16 +1,16 @@
 {# Available datas :
     href : string
     label : string
-    isNeg : bool
     class: string
     datasAttributes: array('')
+    style : 'neg' | 'ghost'
+    color: 'primary' | 'dark' | 'secondary' | 'tertiary'
  #}
 
-{% set style = isNeg ? 'button button--neg' : 'button' %}
-
  {% set classes = [
-    style,
     class,
+    style ? ('button--' ~ style) : 'button--default',
+    color ? ('button--' ~ color) : 'button--primary'
  ]|join(' ') %}
 
 {% set attributes = datasAttributes|join(' ') %}
@@ -18,13 +18,13 @@
 {% if href %}
     <a
         href="{{ href }}"
-        class="{{ classes }}"
+        class="button {{ classes }}"
         {{ datasAttributes ? attributes : '' }}
     >
 {% else %}
     <button
         type="button"
-        class="{{ classes }}"
+        class="button {{ classes }}"
         {{ datasAttributes ? attributes : '' }}
     >
 {% endif %}

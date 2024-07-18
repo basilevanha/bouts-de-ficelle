@@ -5,7 +5,11 @@
     bg: string
     class: string
     ratioImg: number
+    btnColor: 'primary' | 'secondary' | 'tertiary'
  #}
+
+
+ {% set paragraphDatas = paragraphDatas|merge({btnColor}) %}
 
  {% set classes =  [
     'image-text',

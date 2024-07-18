@@ -48,7 +48,9 @@
         }
 
         &__btn {
-            justify-self:end;
+            .button {
+                max-width: 100%;
+            }
         }
     }    
 }

@@ -1,5 +1,15 @@
 <div class="offers-list">
     {% for card in offers %}
+        {% set color = "primary" %}
+
+        {% if loop.index == 2 %}
+            {% set color = "secondary" %}
+        {% endif %}
+
+        {% if loop.index == 3 %}
+            {% set color = "tertiary" %}
+        {% endif %}
+
         {% set datas = {
             img: card.img,
             title: card.titre,
@@ -9,7 +19,8 @@
             schedule: card.horaires,
             number: card.nombre,
             calendar: card.calendrier,
-            btn: card.btn
+            btn: card.btn,
+            color: color
         } %}
         
         <div class="offers-list__card-wrapper">
