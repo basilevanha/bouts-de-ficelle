@@ -157,7 +157,7 @@ select {
   p {
     @include font('regular');
     font-size: rem(20px);
-    color: color(dark);
+    color: color(text);
     margin: $spacing-small 0;
   }
 
