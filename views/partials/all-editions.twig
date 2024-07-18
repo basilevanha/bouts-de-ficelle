@@ -9,7 +9,7 @@
     {% if ('now'|date('U') > event.end|date('U')) %}
         {% set pastevents = pastevents|merge([event]) %}
     {% endif %}
-    {% if ('now'|date('U') < event.end|date('U')) %}
+    {% if ('now'|date('U') < event.date|date('U')) %}
         {% set nextevents = nextevents|merge([event]) %}
     {% endif %}
 {% endfor %}
