@@ -7,7 +7,7 @@
 	<article class="container post-type-{{ post.post_type }} single-event" id="post-{{ post.ID }}">
 		<div class="single-event__container">
 			<div class="single-atelier__hero__breadcrumb">
-				<a class="a" href="{{ site.link }}/calendrier">Calendrier</a>
+				<a class="a" id="event-breadcrumb-events" href="{{ site.link }}/calendrier">Calendrier</a>
 				>
 				{{ post.name }}
 			</div>
@@ -38,7 +38,8 @@
 						<a
 							class="single-event__content__infos a"
 							href="https://www.google.com/maps/search/?api=1&query={{ infos.location|url_encode }}"
-							target="_blank"	
+							target="_blank"
+							id="event-location-on-google-maps"
 						> {{ infos.location }}</a>
 						</span>
 					</p>
@@ -61,13 +62,13 @@
 					<ul class="single-event__tags">
 						<li>
 							{% if typeEvent == "atelier" %}
-								<a href="{{ ateliersURL }}">
+								<a href="{{ ateliersURL }}" id="event-tags-ateliers">
 							{% elseif typeEvent == "spectacle" %}
-								<a href="{{ spectaclesURL }}">
+								<a href="{{ spectaclesURL }}" id="event-tags-spectacles">
 							{% endif %}
 								{{ typeEvent }}
 							</a></li>
-						<li><a href="{{ typeURL }}">{{ typeName }}</a></li>
+						<li><a href="{{ typeURL }}" id="event-tags-event">{{ typeName }}</a></li>
 					</ul>
 			{% endif %}
 

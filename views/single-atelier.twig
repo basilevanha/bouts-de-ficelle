@@ -11,9 +11,9 @@
 			}} %}
 
 			<div class="single-atelier__hero__breadcrumb">
-				<a class="a" href="{{ site.link }}">Accueil</a>
+				<a class="a" id="atelier-breadcrumb-home" href="{{ site.link }}">Accueil</a>
 				>
-				<a class="a" href="{{ global.pageAteliers.guid }}">{{ attribute(global.pageAteliers, 'post_title') }}</a>
+				<a class="a" id="atelier-breadcrumb-ateliers" href="{{ global.pageAteliers.guid }}">{{ attribute(global.pageAteliers, 'post_title') }}</a>
 				>
 				{{ post.name }}
 			</div>

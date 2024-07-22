@@ -4,12 +4,12 @@
 <header class="site-header" role="navigation" js-header>
 	<div class="site-header__head">
 		<div class="site-header__logo">
-			<a href="{{ site.url}}" js-focus-link>
+			<a href="{{ site.url}}" js-focus-link id="header-logo">
 				<img src="{{ global.logo.url }}" alt="{{ global.logo.alt}}">
 			</a>
 		</div>
 
-		<button class="site-header__burger" js-burger-button>
+		<button id="header-burger" class="site-header__burger" js-burger-button>
 			<span class="site-header__burger__line"></span>
 			<span class="site-header__burger__line"></span>
 			<span class="site-header__burger__line"></span>
@@ -27,6 +27,7 @@
 							href="{{ item.link }}"
 							class="{{ post.id == item.object_id ? ' active ' : '' }}"
 							js-menu-link
+							id="header-navigation-item-{{ item.id }}"
 							{% if post.id == item.object_id %}disabled{% endif %}
 						>{{ item.title }}</a>
 					</li>
@@ -58,6 +59,7 @@
 						href="{{ social.url}}"
 						label="{{ social.name }}"
 						target="_blank"
+						id="header-socials-item-{{ loop.index }}"
 					>
 						{{ icon.sprite(social.name, 30, 30, 'Icone de youtube', site.theme.link) }}
 					</a>
@@ -74,6 +76,7 @@
 		id="searchform"
 		action="{{site.link}}"
 		class="site-header__search searchform"
+		id="header-search-form"
 	>
 		<label for="s" class="u-visually-hidden">Chercher dans le site:</label>
 		<input type="text" class"site-header__search__input" name="s" id="s" {{ function('get_search_query') }} />

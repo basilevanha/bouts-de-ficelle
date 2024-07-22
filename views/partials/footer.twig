@@ -18,6 +18,7 @@
                             <a
                                 target="{{ item.target }}"
                                 href="{{ item.link }}"
+                                id="footer-navigation-{{ item.id }}"
                             >{{ item.title }}</a>
                             {% if item.children %}
                                 <ul>
@@ -27,6 +28,7 @@
                                         <a
                                             target="{{ subitem.target }}"
                                             href="{{ subitem.link }}"
+                                            id="footer-navigation-sub-{{ item.id }}"
                                         >{{ subitem.title }}</a>
                                     </li>
                                 {% endfor %}
@@ -92,6 +94,7 @@
                             title="{{ social.name }}"
                             target="_blank"
                             class="site-footer__follow__social"
+                            id="footer-socials-{{ loop.index }}"
                         >
                             {{ icon.sprite(social.name, 30, 30, 'Icone de youtube', site.theme.link) }}
                         </a>

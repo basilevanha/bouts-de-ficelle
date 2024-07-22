@@ -11,9 +11,9 @@
 			}} %}
 
 			<div class="single-spectacle__hero__breadcrumb">
-				<a class="a" href="{{ site.link }}">Accueil</a>
+				<a class="a" id="spectacle-breadcrumb-home" href="{{ site.link }}">Accueil</a>
 				>
-				<a class="a" href="{{ global.pageSpectacles.guid }}">{{ attribute(global.pageSpectacles, 'post_title') }}</a>
+				<a class="a" id="spectacle-breadcrumb-spectacles" href="{{ global.pageSpectacles.guid }}">{{ attribute(global.pageSpectacles, 'post_title') }}</a>
 				>
 				{{ post.name }}
 			</div>
