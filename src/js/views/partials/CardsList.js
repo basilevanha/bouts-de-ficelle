@@ -22,8 +22,6 @@ class CardsList {
             });
         } else {
             this.items.forEach(item => {
-
-                console.log(filterValue, item.dataset.type)
                 item.dataset.type == filterValue ? item.dataset.visible = 'true' : item.dataset.visible = 'false' ;
             });
         }

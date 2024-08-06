@@ -50,7 +50,7 @@
 							id: "Réservation",
 							title: "Réserver sa place",
 							description: "Formulaire de réservation",
-							content: registrationForm|raw
+							content: isBillable ? registrationForm|raw : registrationFormFree|raw
 						} %}
 					{% endif %}
 				</div>
