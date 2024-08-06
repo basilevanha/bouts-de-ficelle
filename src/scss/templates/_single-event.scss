@@ -22,7 +22,6 @@
         padding: $spacing-small;
         margin-top: -$spacing-lg;
         position: relative;
-        z-index: 2;
 
         @include mq($until: 'm') {
             padding: 0;
