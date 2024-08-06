@@ -6,7 +6,7 @@ class Modal {
         this.$closeButton   =   this.$el.querySelector('[js-modal-btn-close]');
         this.$dialog        =   this.$el.querySelector('[js-modal-dialog]');
         this.$backdrop      =   this.$el.querySelector('[js-modal-backdrop]');
-s
+
         this.$body          =     document.querySelector('body');
         this.$header        =     document.querySelector('[js-header]');
 
@@ -14,25 +14,50 @@ s
     }
         
     init() {
-        this._openModal = this.openModal.bind(this);
-        this.$openButton.addEventListener('click', this._openModal);
+      this._openModal = this.openModal.bind(this);
+      this.$openButton.addEventListener('click', this._openModal);
 
-        this._closeModal = this.closeModal.bind(this);
-        this.$closeButton.addEventListener('click', this._closeModal);
-        this.$backdrop.addEventListener('click', this._closeModal);
+      this._closeModal = this.closeModal.bind(this);
+      this.$closeButton.addEventListener('click', this._closeModal);
+      this.$backdrop.addEventListener('click', this._closeModal);
     }
 
     openModal() {
-        this.$header.classList.remove('header-is-sticky');
-        this.$header.classList.add('header-is-hidden');
-        this.$body.style.overflow = "hidden";
-        this.$modal.classList.toggle('is-open');
-        this.focusTrap();
+      this.toggleClassAfterStyleChange();
+      this.$header.classList.remove('header-is-sticky');
+      this.$header.classList.add('header-is-hidden');
+      this.$body.style.overflow = "hidden";
+      this.focusTrap();
     }
+
+    // Async function before we need to change the default modal style before triggering the animation
+    toggleClassAfterStyleChange = async () => {
+      await this.setModalDefaultStyle();
+      this.$modal.classList.toggle('is-open'); 
+    }
+
+    setModalDefaultStyle() {
+      return new Promise((resolve, reject) => {
+        const btnRect = this.$openButton.getBoundingClientRect();
+        const buttonCenterX = btnRect.left + btnRect.width / 2;
+        const buttonCenterY = btnRect.top + btnRect.height / 2;
+        this.$dialog.style.top = buttonCenterY + "px";
+        this.$dialog.style.left = buttonCenterX + "px";
+        this.ticker = buttonCenterX + " / " + buttonCenterY;
+        resolve();
+      })
+    }
+
         
     closeModal() {
-        this.$body.style.overflow = "auto";
-        this.$modal.classList.toggle('is-open');
+      this.$body.style.overflow = "auto";
+      this.$modal.classList.toggle('is-open');
+
+      // Remove style to avoid glitch with animation
+      setTimeout(() => {
+        this.$dialog.style.top = "";
+        this.$dialog.style.left = "";
+      }, 300);
     }
 
     focusTrap() {

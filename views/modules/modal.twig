@@ -11,11 +11,13 @@
 {% import 'atoms/icon.twig' as icon %}
 
 <div class="modal" js-modal>
+    {# Open button modal #}
     {% include 'components/button.twig' with {
         label: label,
         datasAttributes: ['js-modal-btn-open']
     } %}
 
+    {# Modal #}
     <div
         id="{{ id }}"
         class="modal__dialog"
