@@ -65,11 +65,29 @@ select {
   appearance: none;
 }
 
+textarea {
+  padding: $spacing-small;
+  border-radius: $radius-small;
+}
+
 input[type="text"],
 input[type="tel"],
 input[type="email"] {
   height: 44px;
   overflow: hidden;
+}
+
+select {
+  position: relative;
+
+  &::before{
+      content: '';
+      z-index: 100;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+  }
 }
 
 .disabled {
@@ -81,28 +99,6 @@ input[type="email"] {
     background-color: color(disabled);
     cursor: not-allowed;
     font-style: italic;
-  }
-}
-
-textarea {
-  padding: $spacing-small;
-  border-radius: $radius-small;
-}
-
-select {
-  position: relative;
-
-  &::before{
-    content: '';
-    z-index: 100;
-    display: block;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    // position: absolute;
-    // top: 50%;
-    // left: $spacing-small;
-    // transform: translateY(-50%);
   }
 }
 
