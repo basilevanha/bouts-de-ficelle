@@ -16,11 +16,11 @@ Timber::$dirname = [ 'templates', 'views' ];
 
 function global_variables() {
     global $globals;
-	$globals['homepage_ID'] = 10;          // DEV = 9  | STAGING = 10
-    $globals['page_ateliers_ID'] = 194;    // DEV = 20 | STAGING = 194
-    $globals['page_spectacles_ID'] = 200;    // DEV = 22 | STAGING = 200
-    $globals['menus_header_ID'] = 35;      // DEV = 2  | STAGING = 35
-	$globals['menus_footer_ID'] = 36;      // DEV = 6  | STAGING = 36
+	$globals['homepage_ID'] = 9;            // DEV = 9  | STAGING = 10
+    $globals['page_ateliers_ID'] = 20;      // DEV = 20 | STAGING = 194
+    $globals['page_spectacles_ID'] = 22;    // DEV = 22 | STAGING = 200
+    $globals['menus_header_ID'] = 2;        // DEV = 2  | STAGING = 35
+	$globals['menus_footer_ID'] = 6;        // DEV = 6  | STAGING = 36
 }
 add_action( 'after_setup_theme', 'global_variables' );
 
@@ -38,6 +38,11 @@ function add_to_context($context) {
     $complete_event_url = home_url($highlightEvent_url);
     $highlightEventID = url_to_postid($complete_event_url);
 
+    // GEstion de la timezone : convertir en objet date spécifiquement, en incluant la timezone de wordpress
+    $timezone = get_option('timezone_string'); // Récupère la timezone définie dans WordPress
+    $highlight_start_date = get_post_meta($highlightEventID, '_event_start_date', true);
+    $highlight_start_datetime = new DateTime($highlight_start_date, new DateTimeZone($timezone));
+
     // If the field is null, convert it to boolean false / if there is a string, convert it to true
     $isEventExpired = !!!get_field('global-highlight', $homePageID)['event'];
     
@@ -48,12 +53,14 @@ function add_to_context($context) {
         'highlight' =>  array(
             'toggle'    => $isEventExpired ? false : get_field('global-highlight', $homePageID)['toggle'],
             'label'     => get_field('global-highlight', $homePageID)['label'],
-            'type'      => get_field('type_evenement', $highlightEventID) ? : false,
+            'type'      => get_field('event-type', $highlightEventID),
+            'categoryName'  => get_the_title(url_to_postid(get_field('type_name', $highlightEventID))),
+            'categoryUrl'   => get_field('type_name', $highlightEventID),
             'title'     => get_the_title($highlightEventID),                                    // Titre de l'événement
             'url'       => get_the_guid($highlightEventID),
             'content'   => get_the_content($highlightEventID),                           // Contenu de l'événement
             'image'     => get_the_post_thumbnail_url($highlightEventID),
-            'start'     => get_post_meta($highlightEventID, '_event_start_date', true),                      // Date de début de l'événement
+            'start'     => $highlight_start_datetime,                      // Date de début de l'événement
             'location'  => get_post_meta($highlightEventID, '_event_location', true),
         ),
         'socials' => get_field('global-socials', $homePageID),
@@ -62,6 +69,8 @@ function add_to_context($context) {
         'pageAteliers' => get_post($ateliersPageID),
         'pageSpectacles' => get_post($spectaclesPageID),
     );
+
+    $context['timezone'] = wp_timezone_string();
     
     return $context;
 }
@@ -72,6 +81,8 @@ add_filter('timber/context', 'add_to_context');
 // Ajoute un filtre qui met à jour la bannière Event manager avec la featured image (définie par ACF)
 function my_acf_save_post( $post_id ) {
     if(get_post_type($post_id) == 'event_listing') {
+        update_post_meta($post_id, '_event_start_time', get_post_meta($post_id, '_event_start_date', true));
+        update_post_meta($post_id, '_event_end_time', get_post_meta($post_id, '_event_end_date', true));
         update_post_meta($post_id, '_event_expiry_date', get_post_meta($post_id, '_event_end_date', true));
         update_post_meta($post_id, '_event_banner', get_the_post_thumbnail_url($post_id));
     }

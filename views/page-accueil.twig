@@ -42,10 +42,7 @@
 		} %}
 		
 		{% if (global.highlight.toggle == true) %}
-			<div>
-				<h2 class="h2">{{ actus.titre }}</h2>
-				{% include 'modules/highlight.twig' with {event: global.highlight} %}
-			</div>
+			{% include 'modules/highlight.twig' with {title: actus.titre, event: global.highlight} %}
 		{% endif %}
 
 

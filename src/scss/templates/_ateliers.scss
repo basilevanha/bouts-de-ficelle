@@ -1,6 +1,10 @@
 [template="ateliers"] {
     .site-container {
         .container {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-lg;
+            
             .section--hero {
 
             }

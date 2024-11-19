@@ -61,16 +61,23 @@
 					<h5>Tags : </h5>
 					<ul class="single-event__tags">
 						<li>
-							{% if typeEvent == "atelier" %}
-								<a href="{{ ateliersURL }}" id="event-tags-ateliers">
-							{% elseif typeEvent == "spectacle" %}
-								<a href="{{ spectaclesURL }}" id="event-tags-spectacles">
-							{% endif %}
-								{{ typeEvent }}
-							</a></li>
-						<li><a href="{{ typeURL }}" id="event-tags-event">{{ typeName }}</a></li>
+							{% include 'components/button.twig' with {
+								label: typeEvent,
+								href: typeEvent == "atelier" ? ateliersURL : spectaclesURL,
+								style: 'neg',
+								color: 'dark'
+							} %}
+						</li>
+						<li>
+							{% include 'components/button.twig' with {
+								label: typeName,
+								href: typeURL,
+								style: 'neg',
+								color: 'dark'
+							} %}
+						</li>
 					</ul>
-			{% endif %}
+				{% endif %}
 
 			</div>
 

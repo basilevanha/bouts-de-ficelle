@@ -1,7 +1,31 @@
+.highlight__container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .h2 {
+        position: relative;
+
+        &::before {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            inset: 0 auto auto 0;
+            border-radius: 50%;
+            transform: translate(-45%, -40%);
+            width: 200px;
+            height: 200px;
+            background-color: color(bg-secondary);
+        }
+    }
+}
+
 .highlight {
-    background-color: color(dark);
+    background-color: $color-white;
     position: relative;
     border-radius: $radius-small;
+    // border: 3px solid color(dark);
+    box-shadow: 0px 0px 40px 0px rgba(color(dark), 0.2);
     overflow: hidden;
     margin: $spacing-md 0;
     
@@ -11,11 +35,71 @@
     }
 
     &__picture {
+        position: relative;
         flex: 1;
+        aspect-ratio: 16 / 9;
         background-color: color(secondary);
-        
-        @include mq($from: 'l') {
-            max-width: 450px;
+        overflow: hidden;
+
+        &__wrapper,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__date {
+            position: absolute;
+            top: $spacing-small;
+            left: $spacing-small;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            align-items: center;
+            padding: $spacing-xsmall $spacing-small;
+            background-color: color(light);
+            border-radius: $radius-small;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    
+            .month,
+            .day {
+                @include font(bold);
+                line-height: 1;
+            }
+    
+            .month {
+                font-size: rem(15px);
+            }
+    
+            .day {
+                font-size: rem(30px);
+            }
+        }
+
+        &__tags {
+            position: absolute;
+            bottom: $spacing-small;
+            left: $spacing-small;
+            z-index: 1;
+            display: flex;
+            gap: $spacing-xsmall;
+
+            .highlight__picture__tag {
+                padding: 10px;
+                line-height: 1;
+                border-radius: $radius-big;
+                color: color(dark);
+                background-color: rgba(color(light), .8);
+                backdrop-filter: blur(40px);
+                @include font(bold);
+                font-size: rem(12px);
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 200px;
+                text-transform: capitalize;
+            }
         }
     }
 
@@ -23,13 +107,11 @@
         display: flex;
         padding: $spacing-small;
         flex: 1;
-        
     }
 
     &__main {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         flex: 1;
 
         @include mq($from: 'l') {
@@ -43,14 +125,14 @@
         &__title,
         &__time,
         &__location {
-            color: color(light);
+            // color: color(light);
             font-size: rem(20px);
             line-height: 1;
             margin-bottom: $spacing-small;
         }
         
         &__title {
-            color: color(light);
+            // color: color(light);
             @include font(extra-bold);
             font-size: rem(30px);
         }
@@ -63,41 +145,8 @@
         }
 
         &__button {
-            @include mq($from: 'l') {
-                width: unset;
-                align-self: flex-start;
-            }
-        }
-    }
-
-    &__date {
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        align-items: center;
-        padding: $spacing-xsmall $spacing-small;
-        background-color: color(light);
-        border-radius: $radius-small;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-        @include mq($until: 'l') {
-            position: absolute;
-            top: $spacing-small;
-            left: $spacing-small;
-        }
-
-        .month,
-        .day {
-            @include font(bold);
-            line-height: 1;
-        }
-
-        .month {
-            font-size: rem(15px);
-        }
-
-        .day {
-            font-size: rem(30px);
+            width: 100%;
+            max-width: 100%;
         }
     }
 }

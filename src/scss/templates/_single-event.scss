@@ -86,14 +86,9 @@
             a {
                 padding: $spacing-xsmall $spacing-small;
                 border-radius: $spacing-md;
-                border: 2px solid color(primary);
-                background-color: color(primary);
-                color: color(light);
                 @include font('bold');
-
-                &:hover {
-                    background-color: color(link-hover);
-                }
+                font-size: rem(13px);
+                text-transform:capitalize;
             }
         }
 
