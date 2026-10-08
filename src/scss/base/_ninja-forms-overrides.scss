@@ -2,7 +2,6 @@ $form-input-height: 44px;
 
 .nf-form-layout,
 .bdf-form-wrapper {
-
     .nf-error.field-wrap .nf-field-element:after {
         top: 0;
         bottom: 0;
@@ -13,9 +12,8 @@ $form-input-height: 44px;
 
     .nf-field-container:not(.submit-container, .textarea-container) .nf-field-element {
         border-radius: 40px;
-        overflow: hidden;
     }
-      
+
     input[type="text"].ninja-forms-field,
     input[type="email"].ninja-forms-field,
     input[type="number"].ninja-forms-field,
